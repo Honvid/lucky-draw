@@ -1,0 +1,46 @@
+h2{
+    color:#fff;
+    line-height: 20px;
+}
+.animate {
+    height: 150px;
+    overflow: hidden;
+}
+.animate ul{
+    top: -15px;
+    padding: 0;
+    color: #fff;
+    position: relative;
+}
+.animate li{
+    height: 34px;
+    padding:0;
+    text-align: center;
+    font-size: 12px;
+    line-height: 34px;
+    list-style: none;
+}
+.m-b-10 {
+    margin-bottom: 10px;
+}
+.m-t-20 {
+    margin-top: 20px;
+}
+.m-b-20 {
+    margin-bottom: 20px;
+}
+.content {
+    width: 90%; margin: 10px auto;
+}
+.overflow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 9999;
+    background: rgba(0,0,0, 0.4);
+}
+.box{
+    width: 80%;
+    margin: 0 auto;
+}
