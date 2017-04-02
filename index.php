@@ -1,9 +1,8 @@
 <?php
     require 'require.php';
-    $data = JsonHelper::read('Base');
-    $type = '核心词组';
-    $persons = JsonHelper::read('Persons');
     require 'partial/header.php';
+    $count = Data::countPerson();
+    $data = Data::getPlaceList();
 ?>
                 <div class="row">
                     <div class="col-sm-12">
@@ -13,33 +12,18 @@
                                 <table class="table table-striped table-bordered">
                                     <thead>
                                     <tr>
-<!--                                        <th><input type="checkbox" class="check-all"></th>-->
                                         <th>编号</th>
-                                        <th>词组</th>
-                                        <th>现在数量</th>
-                                        <th>7:30</th>
-                                        <th>8:00</th>
-                                        <th>9:00</th>
-                                        <th>12:00</th>
-                                        <th>17:00</th>
-<!--                                        <th>是否启用</th>-->
+                                        <th>主题</th>
+                                        <th>标识</th>
+                                        <th>奖项</th>
+                                        <th>人数</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
                                     <div class="form-inline m-b-20">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-user"></i> 参与人数</span>
-                                                    <input
-                                                            type="number"
-                                                            id="persons"
-                                                            name="persons"
-                                                            class="form-control" placeholder="参与人数" value="<?php echo $persons[0]; ?>">
-                                                    <span class="input-group-btn">
-                                                        <button type="button" id="person-submit" class="btn waves-effect waves-light btn-primary">提交</button>
-                                                    </span>
-                                                </div>
+                                                <button type="button" id="add" class="btn waves-effect waves-light btn-primary">添加</button>
                                             </div>
                                         </div>
                                     </div>
@@ -47,29 +31,18 @@
                                     <?php foreach ($data as $key => $value): ?>
                                         <tr>
                                             <td><?php echo $key+1; ?></td>
-                                            <td>
-                                                <input type="text" class="form-control"  id="title-<?php echo $key; ?>"  value="<?php echo $value['title']; ?>">
+                                            <td><p><?php echo $value['name']; ?></p></td>
+                                            <td><p><?php echo $value['type']; ?></p></td>
+                                            <td style="">
+                                                <p>名称：<?php echo $value['prize_one']; ?>，数量：<?php echo $value['prize_one_num']; ?>个， 状态：<?php echo $value['prize_one_status'] == 1 ? '已抽奖' : '待抽奖'; ?></p>
+                                                <p>名称：<?php echo $value['prize_two']; ?>，数量：<?php echo $value['prize_two_num']; ?>个， 状态：<?php echo $value['prize_two_status'] == 1 ? '已抽奖' : '待抽奖'; ?></p>
+                                                <p>名称：<?php echo $value['prize_three']; ?>，数量：<?php echo $value['prize_three_num']; ?>个， 状态：<?php echo $value['prize_three_status'] == 1 ? '已抽奖' : '待抽奖'; ?></p>
                                             </td>
                                             <td>
-                                                <input type="number" class="form-control number-<?php echo $key; ?>" value="<?php echo $value['number'][0]; ?>">
-                                            </td>
-                                            <td>
-                                                <input type="number" class="form-control number-<?php echo $key; ?>" value="<?php echo $value['number'][1]; ?>">
-                                            </td>
-                                            <td>
-                                                <input type="number" class="form-control number-<?php echo $key; ?>" value="<?php echo $value['number'][2]; ?>">
-                                            </td>
-                                            <td>
-                                                <input type="number" class="form-control number-<?php echo $key; ?>" value="<?php echo $value['number'][3]; ?>">
-                                            </td>
-                                            <td>
-                                                <input type="number" class="form-control number-<?php echo $key; ?>" value="<?php echo $value['number'][4]; ?>">
-                                            </td>
-                                            <td>
-                                                <input type="number" class="form-control number-<?php echo $key; ?>" value="<?php echo $value['number'][5]; ?>">
+                                                <?php echo isset($count[$value['type']]) ? $count[$value['type']] : 0; ?>
                                             </td>
                                             <td class="actions">
-                                                <a href="javascript:;" data-key="<?php echo $key; ?>" class="btn btn-danger waves-effect waves-light edit">保存</a>
+                                                <a href="javascript:;" data-key="<?php echo $value['type']; ?>" class="btn btn-default waves-effect waves-light edit">编辑</a>
                                             </td>
                                         </tr>
                                     <?php endforeach ?>
@@ -120,53 +93,165 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-
-        $('#person-submit').click(function () {
-            var number = $('#persons').val();
-            if(!number) {
-                alert('不能为空！');
-                return false;
-            }
-            $.ajax({
-                url: '/save.php',
-                data: {'type': 'Persons', 'num': number},
-                type: 'POST',
-                success: function (response) {
-                    console.log(response);
-                    location.reload();
-                },
-                error: function (message) {
-                    console.log(message)
-                }
-            })
+        $('#add').on('click', function () {
+            $('#myModal').modal('show');
         });
         $('.edit').on('click', function () {
-            var key = $(this).data('key');
-            var title = $('#title-' + key).val();
-            var number = $('.number-'+key);
-            var num = [];
-            number.each(function () {
-                num.push($(this).val());
-            });
-            if (title == '' || !num) {
-                alert('不能为空！');
-                return false;
-            }
+            var type = $(this).data('key');
             $.ajax({
-                url: '/save.php',
-                data: {'type': 'Base', 'key': parseInt(key), 'title': title, 'num': num},
+                url: '/place.php',
+                data: {'type': type, 'action': 1},
                 type: 'POST',
                 success: function (response) {
-                    console.log(response);
-//                    alert('修改成功！');
-                    location.reload();
+                    if(response.code == 200) {
+                        $('.modal-title').text('编辑' + response.data.name);
+                        $('#name').val(response.data.name);
+                        $('#type').val(response.data.type);
+                        $('#type_default').val(response.data.type);
+                        $('#prize_one').val(response.data.prize_one);
+                        $('#prize_one_num').val(response.data.prize_one_num);
+                        if(response.data.prize_one_status == 1) {
+                            $('#prize_one_status_1').attr('checked', 'checked');
+                        }else{
+                            $('#prize_one_status_0').attr('checked', 'checked');
+                        }
+                        $('#prize_two').val(response.data.prize_two);
+                        $('#prize_two_num').val(response.data.prize_two_num);
+                        if(response.data.prize_two_status == 1) {
+                            $('#prize_two_status_1').attr('checked', 'checked');
+                        }else{
+                            $('#prize_two_status_0').attr('checked', 'checked');
+                        }
+                        $('#prize_three').val(response.data.prize_three);
+                        $('#prize_three_num').val(response.data.prize_three_num);
+                        if(response.data.prize_three_status == 1) {
+                            $('#prize_three_status_1').attr('checked', 'checked');
+                        }else{
+                            $('#prize_three_status_0').attr('checked', 'checked');
+                        }
+                    }else{
+                        alert(response.msg);
+                    }
                 },
                 error: function (message) {
                     console.log(message)
                 }
-            })
+            });
+            $('#myModal').modal('show');
         });
+        $('.save').click(function () {
+            var data = {};
+            data.action = 2;
+            data.name = $('#name').val();
+            data.default_type = $('#type_default').val();
+            data.type = $('#type').val();
+            data.prize_one = $('#prize_one').val();
+            data.prize_one_num = $('#prize_one_num').val();
+            data.prize_one_status = $("input[name='prize_one_status']:checked").val();
+            data.prize_two = $('#prize_two').val();
+            data.prize_two_num = $('#prize_two_num').val();
+            data.prize_two_status = $("input[name='prize_two_status']:checked").val();
+            data.prize_three = $('#prize_three').val();
+            data.prize_three_num = $('#prize_three_num').val();
+            data.prize_three_status = $("input[name='prize_three_status']:checked").val();
+            $.ajax({
+                url: '/place.php',
+                data: data,
+                type: 'POST',
+                success: function (response) {
+                    if(response.code == 200) {
+                        window.location.reload();
+                    }else{
+                        alert(response.msg);
+                    }
+                },
+                error: function (message) {
+                    console.log(message)
+                }
+            });
+        })
     });
 </script>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加会场</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" name="type" id="type_default">
+                <div class="form-group">
+                    <label for="name">会议主题</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="type">标识</label>
+                    <input type="text" class="form-control" id="type">
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="prize_one">一等奖</label>
+                            <input type="text" class="form-control" id="prize_one">
+                        </div>
+                        <div class="form-group">
+                            <label for="prize_one_num">数量</label>
+                            <input type="number" class="form-control" id="prize_one_num">
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-inline" style="padding-left: 0;">
+                                <input type="radio" name="prize_one_status" id="prize_one_status_0" value="0"> 待抽奖
+                            </label>
+                            <label class="checkbox-inline" style="padding-left: 0;">
+                                <input type="radio" name="prize_one_status" id="prize_one_status_1" value="1"> 已抽奖
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="prize_two">二等奖</label>
+                            <input type="text" class="form-control" id="prize_two">
+                        </div>
+                        <div class="form-group">
+                            <label for="prize_two_num">数量</label>
+                            <input type="number" class="form-control" id="prize_two_num">
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-inline" style="padding-left: 0;">
+                                <input type="radio" name="prize_two_status" id="prize_two_status_0" value="0"> 待抽奖
+                            </label>
+                            <label class="checkbox-inline" style="padding-left: 0;">
+                                <input type="radio" name="prize_two_status" id="prize_two_status_1" value="1"> 已抽奖
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="prize_three">三等奖</label>
+                            <input type="text" class="form-control" id="prize_three">
+                        </div>
+                        <div class="form-group">
+                            <label for="prize_three_num">数量</label>
+                            <input type="number" class="form-control" id="prize_three_num">
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-inline" style="padding-left: 0;">
+                                <input type="radio" name="prize_three_status" id="prize_three_status_0" value="0"> 待抽奖
+                            </label>
+                            <label class="checkbox-inline" style="padding-left: 0;">
+                                <input type="radio" name="prize_three_status" id="prize_three_status_1" value="1"> 已抽奖
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary save">保存</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </body>
 </html>

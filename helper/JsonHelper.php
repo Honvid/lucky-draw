@@ -45,34 +45,10 @@ class JsonHelper
         return file_get_contents(self::$baseDir . $fileName . '.json');
     }
 
-    /**
-     * 保存属性
-     * @param  int    $key      [description]
-     * @param  string $name     [description]
-     * @param  string $fileName [description]
-     * @return [type]           [description]
-     */
-    public static function save($key, $name, $fileName)
+    public static function update($key, $data, $fileName)
     {
         $data = self::read($fileName);
-        $data[$key] = $name;
-        self::write($data, $fileName);
-    }
-
-    /**
-     * 保存属性
-     * @param $key
-     * @param $title
-     * @param $num
-     * @param $fileName
-     */
-    public static function saveBase($key, $title, $num, $fileName)
-    {
-        $data = self::read($fileName);
-        $data[$key] = [
-            'title' => $title,
-            'number' => $num
-        ];
+        $data[$key] = $data;
         self::write($data, $fileName);
     }
 }

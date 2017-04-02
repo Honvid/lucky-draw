@@ -75,7 +75,7 @@
                 <ul>
                     <li class="text-muted menu-title">控制台</li>
                     <li>
-                        <a href="/index.php" class="waves-effect"><span> 核心词组 </span></a>
+                        <a href="/index.php" class="waves-effect"><span> 会场信息 </span></a>
                     </li>
                     <li>
                         <a href="/big.php" class="waves-effect"><span> BigData </span></a>
@@ -99,14 +99,3 @@
         <!-- Start content -->
         <div class="content">
             <div class="container">
-                <!-- Page-Title -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <ol class="breadcrumb">
-                            <li>
-                                <a href="/">首页</a>
-                            </li>
-                            <li class="active"><?php echo $type; ?></li>
-                        </ol>
-                    </div>
-                </div>
