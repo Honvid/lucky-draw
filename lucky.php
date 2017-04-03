@@ -26,27 +26,28 @@ if(empty($place)) {
     <link href="assets/css/lucky.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div style="width: 60%; margin: 0 auto;">
+<div style="margin: 0 auto;">
     <div class="row">
-        <div class="col-md-8"><?php echo $place['name']; ?>：<?php echo $place['title']; ?></div>
-        <div class="col-md-4">LOGO</div>
+        <div class="col-md-12 text-center">
+            <img class="lucky-logo" src="assets/images/lucky/title1.png" alt="">
+        </div>
     </div>
-    <div class="row" style="background: gray">
-        <h2 class="text-center">现场抽奖</h2>
-        <hr style="color: #fff;" class="content">
-        <div class="content">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-2">
-                        <a href="javascript:;" class="btn btn-md btn-success m-b-10 pull-left" id="one" <?php if($place['prize_one_status'] == 1) {echo 'disabled="disabled"';}?>>一等奖</a>
-                        <a href="javascript:;" class="btn btn-md btn-success m-b-10 pull-left" id="two" <?php if($place['prize_two_status'] == 1) {echo 'disabled="disabled"';}?>>二等奖</a>
-                        <a href="javascript:;" class="btn btn-md btn-success pull-left" id="three" <?php if($place['prize_three_status'] == 1) {echo 'disabled="disabled"';}?>>三等奖</a>
+    <div class="row text-center">
+        <div class="lucky-body">
+            <div class="content">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <a href="javascript:;" class="btn btn-md btn-success m-b-10 pull-left" id="one" <?php if($place['prize_one_status'] == 1) {echo 'disabled="disabled"';}?>>一等奖</a>
+                            <a href="javascript:;" class="btn btn-md btn-success m-b-10 pull-left" id="two" <?php if($place['prize_two_status'] == 1) {echo 'disabled="disabled"';}?>>二等奖</a>
+                            <a href="javascript:;" class="btn btn-md btn-success pull-left" id="three" <?php if($place['prize_three_status'] == 1) {echo 'disabled="disabled"';}?>>三等奖</a>
+                        </div>
+                        <div class="col-md-2 animate"><ul></ul></div>
+                        <div class="col-md-2 animate"><ul></ul></div>
+                        <div class="col-md-2 animate"><ul></ul></div>
+                        <div class="col-md-2 animate"><ul></ul></div>
+                        <div class="col-md-2 animate"><ul></ul></div>
                     </div>
-                    <div class="col-md-2 animate"><ul></ul></div>
-                    <div class="col-md-2 animate"><ul></ul></div>
-                    <div class="col-md-2 animate"><ul></ul></div>
-                    <div class="col-md-2 animate"><ul></ul></div>
-                    <div class="col-md-2 animate"><ul></ul></div>
                 </div>
             </div>
         </div>

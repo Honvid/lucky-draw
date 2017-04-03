@@ -1,6 +1,21 @@
+body {
+    background-image: url("../images/lucky/bg.jpg");
+    background-size: cover;
+}
 h2{
     color:#fff;
     line-height: 20px;
+}
+.lucky-body{
+    width: 50%;
+    margin: 0 auto;
+    background-image: url("../images/lucky/step1_bg.jpg");
+    background-size: cover;
+}
+.lucky-logo{
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 10%;
 }
 .animate {
     height: 150px;
