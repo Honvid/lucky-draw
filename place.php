@@ -26,4 +26,12 @@ if($action == 2) {
         exit(json_encode(['code' => 200, 'msg' => '更新成功', 'data' => []], JSON_UNESCAPED_UNICODE));
     }
 }
+if($action == 3) {
+    if(!empty($_POST['id'])) {
+        $result = Data::updatePrizeTime(intval($_POST['id']));
+        if($result) {
+            exit(json_encode(['code' => 200, 'msg' => '更新成功', 'data' => []], JSON_UNESCAPED_UNICODE));
+        }
+    }
+}
 exit(json_encode(['code' => 500, 'msg' => '参数错误', 'data' => []], JSON_UNESCAPED_UNICODE));

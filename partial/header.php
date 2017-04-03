@@ -78,16 +78,7 @@
                         <a href="/index.php" class="waves-effect"><span> 会场信息 </span></a>
                     </li>
                     <li>
-                        <a href="/big.php" class="waves-effect"><span> BigData </span></a>
-                    </li>
-                    <li>
-                        <a href="/brain.php" class="waves-effect"><span> Brain </span></a>
-                    </li>
-                    <li>
-                        <a href="/cloud.php" class="waves-effect"><span> Cloud </span></a>
-                    </li>
-                    <li>
-                        <a href="/human.php" class="waves-effect"><span> Human </span></a>
+                        <a href="/prize.php" class="waves-effect"><span> 获奖信息 </span></a>
                     </li>
                 </ul>
                 <div class="clearfix"></div>

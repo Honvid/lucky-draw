@@ -31,7 +31,10 @@
                                     <?php foreach ($data as $key => $value): ?>
                                         <tr>
                                             <td><?php echo $key+1; ?></td>
-                                            <td><p><?php echo $value['name']; ?></p></td>
+                                            <td>
+                                                <p><?php echo $value['name']; ?></p>
+                                                <p>http://lucky.honvid.com/lucky.php?type=<?php echo $value['type']; ?></p>
+                                            </td>
                                             <td><p><?php echo $value['type']; ?></p></td>
                                             <td style="">
                                                 <p>名称：<?php echo $value['prize_one']; ?>，数量：<?php echo $value['prize_one_num']; ?>个， 状态：<?php echo $value['prize_one_status'] == 1 ? '已抽奖' : '待抽奖'; ?></p>
@@ -42,7 +45,10 @@
                                                 <?php echo isset($count[$value['type']]) ? $count[$value['type']] : 0; ?>
                                             </td>
                                             <td class="actions">
-                                                <a href="javascript:;" data-key="<?php echo $value['type']; ?>" class="btn btn-default waves-effect waves-light edit">编辑</a>
+                                                <?php if(isset($_GET['role']) && $_GET['role'] == 'admin') { ?>
+                                                <a href="javascript:;" data-key="<?php echo $value['type']; ?>" class="btn btn-warning waves-effect waves-light edit">编辑</a>
+                                                <?php } ?>
+                                                <a href="/prize.php?type=<?php echo $value['type']; ?>" class="btn btn-success waves-effect waves-light">查看获奖名单</a>
                                             </td>
                                         </tr>
                                     <?php endforeach ?>

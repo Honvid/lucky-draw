@@ -65,6 +65,27 @@ class Data
         return $result > 0;
     }
 
+    public static function getPrizePerson($type)
+    {
+        $db = new MySQL(self::DB);
+        if(empty($type)) {
+            $sql = 'SELECT p.*, r.name, u.* FROM `h3c_meet_prize` as p 
+              LEFT JOIN `h3c_meet_room` as r ON r.`type` = p.`whichPlate` 
+              LEFT JOIN `h3c_meet_user` as u ON u.`id` = p.`uid`
+              WHERE p.`prize_name` != "no";';
+        }else{
+            $sql = 'SELECT p.*, r.name, u.* FROM `h3c_meet_prize` as p 
+              LEFT JOIN `h3c_meet_room` as r ON r.`type` = p.`whichPlate` 
+              LEFT JOIN `h3c_meet_user` as u ON u.`id` = p.`uid`
+              WHERE p.`whichPlate` = "'.$type.'" AND p.`prize_name` != "no";';
+        }
+        $db->prepare($sql);
+        $db->execute();
+        $result = $db->getall();
+        $db->close();
+        return $result;
+    }
+
     public static function getPlaceList()
     {
         $db = new MySQL(self::DB);
@@ -128,12 +149,23 @@ class Data
     private static function updatePrize($ids, $prize, $number, $type)
     {
         $db = new MySQL(self::DB);
-        $sql = 'UPDATE `h3c_meet_prize` SET `prize_name` = "'.$prize.'" WHERE `whichPlate` = "'.$type.'" AND  `uid` IN ('.$ids.');';
+        $sql = 'UPDATE `h3c_meet_prize` SET `prize_name` = "'.$prize.'", `get_time` = "'.date('Y-m-d H:i:s').'" WHERE `whichPlate` = "'.$type.'" AND  `uid` IN ('.$ids.');';
         $db->prepare($sql);
         $db->execute();
         $result = $db->getrowcount();
         $db->close();
         return $result == $number;
+    }
+
+    public static function updatePrizeTime($id)
+    {
+        $db = new MySQL(self::DB);
+        $sql = 'UPDATE `h3c_meet_prize` SET `accept_time` = "'.date('Y-m-d H:i:s').'" WHERE `id` = "'.$id.'"';
+        $db->prepare($sql);
+        $db->execute();
+        $result = $db->getrowcount();
+        $db->close();
+        return $result > 0;
     }
 
     private static function updatePlace($type, $name)
