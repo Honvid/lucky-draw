@@ -186,6 +186,7 @@ if(empty($place)) {
                                 $('.prize-total').text('三等奖')
                             }
                             if(number.val() == 1) {
+                                var str = data.data[0].phone;
                                 list += '<div class="col-md-12 text-center">';
                                 list += '    <div class="row" style="margin: 25px">';
                                 list += '       <div class="col-md-6 user-info-one">';
@@ -195,7 +196,7 @@ if(empty($place)) {
                                 list += '       <p style="margin: 0; margin-top: 10px; color: yellow">恭喜此用户获得</p>';
                                 list += '       <p style="margin: 0; color: yellow">'+prize.val()+'</p>';
                                 list += '       <hr style="margin: 5px 0; color: yellow">';
-                                list += '       <p style="margin: 0; color: yellow;font-size: 24px;font-weight: bold;">' + data.data[0].phone + '</p>';
+                                list += '       <p style="margin: 0; color: yellow;font-size: 24px;font-weight: bold;">' + str.substr(0,3)+"****"+str.substr(7) + '</p>';
                                 list += '    </div>';
                                 list += '</div>';
                             }else {
@@ -203,10 +204,11 @@ if(empty($place)) {
                                 list += '    <p class="prize-title">恭喜以下用户获得'+prize.val()+'</p>';
                                 list += '</div>';
                                 $.each(data.data, function (i, val) {
+                                    var str = val.phone;
                                     list += '<div class="col-md-3 text-center">';
                                     list += '    <div class="user-info">';
                                     list += '    <img src="' + val.headimgurl + '" width="100" alt="' + val.nickname + '">';
-                                    list += '       <p>' + val.phone + '</p>';
+                                    list += '       <p>' + str.substr(0,3)+"****"+str.substr(7) + '</p>';
                                     list += '    </div>';
                                     list += '</div>';
                                 });
