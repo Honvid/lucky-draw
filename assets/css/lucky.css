@@ -8,8 +8,14 @@ h2{
 }
 .lucky-body{
     width: 50%;
-    margin: 0 auto;
+    margin: 20px auto;
     background-image: url("../images/lucky/step1_bg.jpg");
+    background-size: cover;
+}
+.lucky-body-two{
+    width: 50%;
+    margin: 20px auto;
+    background-image: url("../images/lucky/reward_bg.png");
     background-size: cover;
 }
 .lucky-logo{
@@ -17,8 +23,112 @@ h2{
     width: 70%;
     margin-top: 10%;
 }
+.user-info{
+    background: url("../images/lucky/img_bg.png") no-repeat 50% top;
+    background-size: 100px;
+    margin-bottom: 40px;
+}
+.user-info-one{
+    background: url("../images/lucky/img_bg.png") no-repeat right top;
+    background-size: 100px;
+    margin-bottom: 40px;
+}
+.user-info img{
+    width: 85px;
+    height: 85px;
+    margin: 7px;
+}
+.user-info-one img {
+    width: 85px;
+    height: 85px;
+    margin: 7px;
+    margin-right: -7px;
+    float: right;
+}
+.user-info p {
+    font-size: 18px;
+    color: yellow;
+}
+.prize-total{
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: -15px;
+}
+.prize-title{
+    text-align: center;
+    font-size: 14px;
+    color: yellow;
+}
+.btn-prize:link{
+    text-decoration: none;
+    color: yellow;
+}
+.btn-prize:hover,.btn-prize:visited,.btn-prize.active{
+    background-image: url(../images/lucky/btn.png);
+    background-position: top;
+    text-decoration: none;
+    background-size: cover;
+    width: 100%;
+    height: 32px;
+    font-size: 18px;
+    color: #000;
+    line-height: 32px;
+    text-align: center;
+}
+.prize-info{
+    background: url(../images/lucky/prize_bg.png) no-repeat left;
+    background-size: 70px;
+    height: 35px;
+    padding-left: 75px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: yellow;
+    line-height: 35px;
+    width: 40%;
+}
+.prize-span{
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px;
+}
+.copyright{
+    line-height: 20px;
+    padding: 0;
+    color: #fff;
+    margin: 0;
+    font-size: 12px;
+}
+#start{
+    background-image: url(../images/lucky/start.png);
+    background-size: cover;
+    height: 40px;
+    font-size:0;
+    width: 112px;
+}
+#start.active{
+    background-image: url(../images/lucky/stop.png);
+    background-size: cover;
+    height: 40px;
+    font-size:0;
+    width: 112px;
+}
+.btn-prize{
+    background-image: url(../images/lucky/btn.png);
+    background-position: bottom;
+    background-size: cover;
+    text-decoration: none;
+    width: 100%;
+    font-weight: bold;
+    height: 32px;
+    font-size: 18px;
+    color: yellow;
+    line-height: 32px;
+    text-align: center;
+}
 .animate {
-    height: 150px;
+    height: 120px;
     overflow: hidden;
 }
 .animate ul{
@@ -31,7 +141,8 @@ h2{
     height: 34px;
     padding:0;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: bold;
     line-height: 34px;
     list-style: none;
 }

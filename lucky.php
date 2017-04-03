@@ -32,40 +32,59 @@ if(empty($place)) {
             <img class="lucky-logo" src="assets/images/lucky/title1.png" alt="">
         </div>
     </div>
-    <div class="row text-center">
+    <div class="step-one" style="display: block">
         <div class="lucky-body">
-            <div class="content">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <a href="javascript:;" class="btn btn-md btn-success m-b-10 pull-left" id="one" <?php if($place['prize_one_status'] == 1) {echo 'disabled="disabled"';}?>>一等奖</a>
-                            <a href="javascript:;" class="btn btn-md btn-success m-b-10 pull-left" id="two" <?php if($place['prize_two_status'] == 1) {echo 'disabled="disabled"';}?>>二等奖</a>
-                            <a href="javascript:;" class="btn btn-md btn-success pull-left" id="three" <?php if($place['prize_three_status'] == 1) {echo 'disabled="disabled"';}?>>三等奖</a>
-                        </div>
-                        <div class="col-md-2 animate"><ul></ul></div>
-                        <div class="col-md-2 animate"><ul></ul></div>
-                        <div class="col-md-2 animate"><ul></ul></div>
-                        <div class="col-md-2 animate"><ul></ul></div>
-                        <div class="col-md-2 animate"><ul></ul></div>
-                    </div>
+            <div class="row">
+                <div style="width: 90%; margin: 0 auto; padding: 10% 0;">
+                <div class="col-md-2" style="padding-bottom: 30px">
+                    <a href="javascript:;" class="m-b-10 pull-left btn-prize <?php if($place['prize_one_status'] == 1) {echo 'active';}?>" id="one">一等奖</a>
+                    <a href="javascript:;" class="m-b-10 pull-left btn-prize <?php if($place['prize_two_status'] == 1) {echo 'active';}?>" id="two">二等奖</a>
+                    <a href="javascript:;" class="pull-left btn-prize <?php if($place['prize_three_status'] == 1) {echo 'active';}?>" id="three">三等奖</a>
                 </div>
+                <div class="col-md-2 animate"><ul></ul></div>
+                <div class="col-md-2 animate"><ul></ul></div>
+                <div class="col-md-2 animate"><ul></ul></div>
+                <div class="col-md-2 animate"><ul></ul></div>
+                <div class="col-md-2 animate"><ul></ul></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center m-b-20">
+                <input type="hidden" id="prize" value="0">
+                <input type="hidden" id="prize_name" value="0">
+                <input type="hidden" id="number" value="0">
+                <a href="javascript:;" class="btn text-center" id="start">开始抽奖</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="prize-info">
+                    <span class="prize-span">一等奖</span> <?php echo $place['prize_one'] . ' '.$place['prize_one_num'] . '名 '; ?>
+                    <span class="prize-span">二等奖</span> <?php echo $place['prize_two'] . ' '.$place['prize_two_num'] . '名 '; ?>
+                    <span class="prize-span">三等奖</span><?php echo $place['prize_three'] . ' '.$place['prize_three_num'] . '名 '; ?></p>
+            </div>
+        </div>
+    </div>
+    <div class="step-two" style="display: none;">
+        <div class="lucky-body-two">
+            <p class="prize-total">一等奖</p>
+            <div class="row">
+                <div style="width: 90%; margin: 0 auto; padding: 10px 0;" class="list">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 20px">
+            <div class="col-md-12 text-center">
+                <img width="50" id="close" src="assets/images/lucky/close_btn.png">
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12 text-center m-b-20 m-t-20">
-            <input type="hidden" id="prize" value="0">
-            <input type="hidden" id="prize_name" value="0">
-            <input type="hidden" id="number" value="0">
-            <a href="javascript:;" class="btn btn-danger text-center" id="start">开始抽奖</a>
-        </div>
-    </div>
-</div>
-<div class="overflow">
-    <div class="box">
-        <div class="row text-center">
-            <div class="col-md-12 list"></div>
-            <p class="btn btn-danger" style="margin-top: 10px;" id="close">关闭</p>
+        <div class="col-md-12 text-center" style="margin-top: 3%; margin-bottom: 1%;">
+            <p class="copyright">由新华三集团和英特尔共同呈现</p>
+            <p class="copyright">英特尔，让效能更强劲</p>
+            <p class="copyright">英特尔和英特尔标识是英特尔公司在美国和/或其他国家（地区）的商标</p>
         </div>
     </div>
 </div>
@@ -98,19 +117,40 @@ if(empty($place)) {
         var prize_name = $('#prize_name');
         var number = $('#number');
         $('#one').click(function () {
-            prize_name.val('prize_one_status');
-            prize.val('<?php echo $place['prize_one']; ?>');
-            number.val(<?php echo $place['prize_one_num']; ?>);
+            <?php if($place['prize_one_status'] == 0) { ?>
+                $('#one').addClass('active');
+                $('#two').removeClass('active');
+                $('#three').removeClass('active');
+                prize_name.val('prize_one_status');
+                prize.val('<?php echo $place['prize_one']; ?>');
+                number.val(<?php echo $place['prize_one_num']; ?>);
+            <?php }else{ ?>
+                alert('一等奖已经抽完');
+            <?php } ?>
         });
         $('#two').click(function () {
+            <?php if($place['prize_two_status'] == 0) { ?>
+            $('#one').removeClass('active');
+            $('#two').addClass('active');
+            $('#three').removeClass('active');
             prize_name.val('prize_two_status');
             prize.val('<?php echo $place['prize_two']; ?>');
             number.val(<?php echo $place['prize_two_num']; ?>);
+            <?php }else{ ?>
+            alert('二等奖已经抽完');
+            <?php } ?>
         });
         $('#three').click(function () {
+            <?php if($place['prize_three_status'] == 0) { ?>
+            $('#one').removeClass('active');
+            $('#two').removeClass('active');
+            $('#three').addClass('active');
             prize_name.val('prize_three_status');
             prize.val('<?php echo $place['prize_three']; ?>');
             number.val(<?php echo $place['prize_three_num']; ?>);
+            <?php }else{ ?>
+            alert('三等奖已经抽完');
+            <?php } ?>
         });
         $('#start').click(function () {
             if($(this).text() == '开始抽奖') {
@@ -118,6 +158,7 @@ if(empty($place)) {
                     alert("请选择抽奖的等级哦");
                     return false;
                 }
+                $(this).addClass('active');
                 $(this).text('停止抽奖');
                 animate.each(function () {
                     $(this).myScroll({
@@ -127,33 +168,46 @@ if(empty($place)) {
                     });
                 });
             }else if ($(this).text() == '停止抽奖'){
+                $(this).removeClass('active');
                 $.ajax({
                     url: '/judge.php',
                     data: {'name': prize_name.val(),'prize' : prize.val(), 'number' : number.val(), 'type' : "<?php echo $type; ?>"},
                     type: 'post',
                     success:function (data) {
                         if(data.code == 200) {
-                            animate.each(function () {
-                                $(this).find('li').remove()
-                            });
-                            $('.overflow').css('height', '100%').css('width', '100%').show();
+                            $('.step-one').hide();
+                            $('.step-two').show();
                             var list = '';
+                            if(prize_name.val() == 'prize_one_status') {
+                                $('.prize-total').text('一等奖')
+                            }else if(prize_name.val() == 'prize_two_status') {
+                                $('.prize-total').text('二等奖')
+                            }else if(prize_name.val() == 'prize_three_status') {
+                                $('.prize-total').text('三等奖')
+                            }
                             if(number.val() == 1) {
-                                list += '   <div class="thumbnail">';
-                                list += '       <img width="100" src="' + data.data[0].headimgurl + '" alt="' + data.data[0].nickname + '">';
-                                list += '       <div class="caption">';
-                                list += '           <h3>' + data.data[0].phone + '</h3>';
+                                list += '<div class="col-md-12 text-center">';
+                                list += '    <div class="row" style="margin: 25px">';
+                                list += '       <div class="col-md-6 user-info-one">';
+                                list += '           <img src="' + data.data[0].headimgurl + '" alt="">';
                                 list += '       </div>';
-                                list += '   </div>';
+                                list += '    <div class="col-md-4 text-center">';
+                                list += '       <p style="margin: 0; margin-top: 10px; color: yellow">恭喜此用户获得</p>';
+                                list += '       <p style="margin: 0; color: yellow">'+prize.val()+'</p>';
+                                list += '       <hr style="margin: 5px 0; color: yellow">';
+                                list += '       <p style="margin: 0; color: yellow;font-size: 24px;font-weight: bold;">' + data.data[0].phone + '</p>';
+                                list += '    </div>';
+                                list += '</div>';
                             }else {
+                                list += '<div class="col-md-12">';
+                                list += '    <p class="prize-title">恭喜以下用户获得'+prize.val()+'</p>';
+                                list += '</div>';
                                 $.each(data.data, function (i, val) {
-                                    list += '<div class="col-md-6">';
-                                    list += '   <div class="thumbnail">';
-                                    list += '       <img width="100" src="' + val.headimgurl + '" alt="' + val.nickname + '">';
-                                    list += '       <div class="caption">';
-                                    list += '           <h3>' + val.phone + '</h3>';
-                                    list += '       </div>';
-                                    list += '   </div>';
+                                    list += '<div class="col-md-3 text-center">';
+                                    list += '    <div class="user-info">';
+                                    list += '    <img src="' + val.headimgurl + '" width="100" alt="' + val.nickname + '">';
+                                    list += '       <p>' + val.phone + '</p>';
+                                    list += '    </div>';
                                     list += '</div>';
                                 });
                             }
