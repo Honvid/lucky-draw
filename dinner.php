@@ -81,13 +81,13 @@ if(empty($place)) {
             <div class="col-md-12">
                 <p class="prize-info" style="padding: 0;padding-top: 15px; margin: 0 auto; text-align: center">
                     <?php if($place['prize_three_status'] == 0 ) {?>
-                    <img src="assets/images/lucky/er-dinner-chou.png" alt=""></p>
+                    <img src="assets/images/lucky/san-dinner-chou.png" alt=""></p>
                 <?php }elseif($place['prize_two_status'] == 0 ){ ?>
                     <img src="assets/images/lucky/er-dinner-chou.png" alt=""></p>
                 <?php }elseif($place['prize_one_status'] == 0){ ?>
-                    <img src="assets/images/lucky/er-dinner-chou.png" alt=""></p>
+                    <img src="assets/images/lucky/yi-dinner-chou.png" alt=""></p>
                 <?php }else{ ?>
-                    <img src="assets/images/lucky/er-dinner-chou.png" alt=""></p>
+                    <img src="assets/images/lucky/san-dinner-chou.png" alt=""></p>
                 <?php } ?>
             </div>
         </div>
@@ -182,6 +182,7 @@ if(empty($place)) {
                             }else if(prize_name.val() == 'prize_three_status') {
                                 $('#bg').attr('src', 'assets/images/lucky/background/san-dinner.png');
                                 $.each(data.data, function (i, val) {
+                                    var str = val.dinnerphone;
                                     list += '<div class="dinner-list">';
                                     list += '    <div class="user-info">';
                                     list += '       <img src="'+val.headimgurl+'">';
