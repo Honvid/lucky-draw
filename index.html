@@ -32,6 +32,19 @@
         #submit img {
             width: 70%;
         }
+        .overlay{
+            display: none;
+            position: absolute;
+            top: 0;
+            text-align: center;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            width: 100%;
+        }
+        .overlay img{
+            margin-top: 45%;
+            width: 250px;
+        }
     </style>
 </head>
 <body>
@@ -39,6 +52,9 @@
     <input type="text" class="form-control" id="phone">
     <a href="javascript:;" id="submit" onclick="_hmt.push(['_trackEvent',button,click,tijiao]);
 "><img src="assets/images/lucky/submit.png" alt=""></a>
+</div>
+<div class="overlay">
+    <img src="assets/images/alert.png" alt="">
 </div>
 <script src="assets/js/jquery.min.js"></script>
 <script>
@@ -68,7 +84,7 @@
             }
         };
         if (!isMobile.any()) {
-            alert('请使用手机浏览！');
+//            alert('请使用手机浏览！');
             return false;
         }
         var uid = getUrlParam('uid');
@@ -78,18 +94,18 @@
         $('#submit img').on('click', function () {
             var tel = $('#phone');
             if(tel.val() == '') {
-                alert('请输入手机号！');
+//                alert('请输入手机号！');
                 tel.focus();
                 return false;
             }
             var reg = /^0?1\d{10}$/;
             if (!reg.test(tel.val())) {
-                alert("请输入正确的手机号码！");
+//                alert("请输入正确的手机号码！");
                 return false;
             }
             $.getJSON('http://mobile-show.cn/h3c/hzmeet/bg/dinnerphone?callback=?&uid='+uid+'&phone='+tel.val(), function (data) {
                 if(data.code == 200){
-                    alert("提交成功！");
+                    $('.overlay').show();
                 }else{
                     alert('提交失败，请重试！')
                 }
