@@ -39,7 +39,11 @@ if(empty($place)) {
                 <div class="col-md-2" style="padding-bottom: 30px">
                     <a href="javascript:;" class="m-b-10 pull-left btn-prize <?php if($place['prize_one_status'] == 1) {echo 'active';}?>" id="one">一等奖</a>
                     <a href="javascript:;" class="m-b-10 pull-left btn-prize <?php if($place['prize_two_status'] == 1) {echo 'active';}?>" id="two">二等奖</a>
-                    <a href="javascript:;" class="pull-left btn-prize <?php if($place['prize_three_status'] == 1) {echo 'active';}?>" id="three">三等奖</a>
+                    <?php if($place['prize_one_status'] == 0 && $place['prize_two_status'] == 0 && $place['prize_three_status'] == 0) {?>
+                        <a href="javascript:;" class="pull-left btn-prize active" id="three">三等奖</a>
+                    <?php } else {?>
+                        <a href="javascript:;" class="pull-left btn-prize <?php if($place['prize_three_status'] == 1) {echo 'active';}?>" id="three">三等奖</a>
+                    <?php } ?>
                 </div>
                 <div class="col-md-2 animate"><ul></ul></div>
                 <div class="col-md-2 animate"><ul></ul></div>
