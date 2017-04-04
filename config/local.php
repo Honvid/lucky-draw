@@ -6,12 +6,12 @@
 $Mysql= array(
     'main' => array(
         'h3c' => array(
-            'host'     => '182.92.167.77',
+            'host'     => '',
             'port'     => 3306,
-            'dbname' => 'h3c',
+            'dbname' => '',
             'charset'  => 'utf8',
-            'user'     => 'tengju',
-            'pass'     => 'lcqx1401db'
+            'user'     => '',
+            'pass'     => ''
         ),
     )
 );
