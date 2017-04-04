@@ -45,7 +45,7 @@ h2{
     float: right;
 }
 .user-info p {
-    font-size: 18px;
+    font-size: 16px;
     color: yellow;
 }
 .prize-total{
@@ -210,9 +210,9 @@ h2{
     margin-top: 2px;
 }
 .dinner-list .user-info p{
-    font-size: 14px;
+    font-size: 12px;
     line-height: 58px;
 }
 .dinner-list-two .user-info p{
-    font-size: 16px;
+    font-size: 12px;
 }
