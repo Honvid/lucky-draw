@@ -1,7 +1,8 @@
 body{
     background-image: url("../images/lucky/background/pure.jpg");
     background-size: 100%;
-    overflow-x:hidden
+    overflow-x:hidden;
+    font-family:"Microsoft YaHei","微软雅黑";
 }
 h2{
     color:#fff;
