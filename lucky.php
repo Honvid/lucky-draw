@@ -9,6 +9,11 @@ if(!isset($_GET['type'])) {
 require 'require.php';
 $phone = getPhone(1500);
 $type = $_GET['type'];
+if($type == 'dinner') {
+    Header("HTTP/1.1 303 See Other");
+    Header("Location: /dinner.php?type=dinner");
+    exit;
+}
 $place = Data::getPlace($type);
 if(empty($place)) {
     exit('参数错误');
@@ -77,10 +82,7 @@ if(empty($place)) {
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p class="prize-info">
-                    <span class="prize-span">一等奖</span> <?php echo $place['prize_one'] . ' '.$place['prize_one_num'] . '名 '; ?>
-                    <span class="prize-span">二等奖</span> <?php echo $place['prize_two'] . ' '.$place['prize_two_num'] . '名 '; ?>
-                    <span class="prize-span">三等奖</span><?php echo $place['prize_three'] . ' '.$place['prize_three_num'] . '名 '; ?></p>
+                <p class="prize-info"><img style="width: 100%" src="assets/images/lucky/prize-fen-chou.png" alt=""></p>
             </div>
         </div>
 

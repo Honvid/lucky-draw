@@ -1,0 +1,42 @@
+[2017-04-03 07:44:39]WARNING: >>exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `p.prize_name` != "no" AND `r.type` = `p.whichPlate`' at line 1' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(77): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/prize.php(5): Data::getPrizePerson('')
+#3 {main}
+[2017-04-03 07:44:39]WARNING: >>SELECT p.*, r.name FROM `h3c_meet_prize` as p LEFT JOIN `h3c_meet_room` as r WHERE `p.prize_name` != "no" AND `r.type` = `p.whichPlate`;
+[2017-04-03 07:45:39]WARNING: >>exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE p.`prize_name` != "no" AND r.`type` = p.`whichPlate`' at line 1' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(77): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/prize.php(5): Data::getPrizePerson('')
+#3 {main}
+[2017-04-03 07:45:39]WARNING: >>SELECT p.*, r.name FROM `h3c_meet_prize` as p LEFT JOIN `h3c_meet_room` as r WHERE p.`prize_name` != "no" AND r.`type` = p.`whichPlate`;
+[2017-04-03 07:45:40]WARNING: >>exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE p.`prize_name` != "no" AND r.`type` = p.`whichPlate`' at line 1' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(77): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/prize.php(5): Data::getPrizePerson('')
+#3 {main}
+[2017-04-03 07:45:40]WARNING: >>SELECT p.*, r.name FROM `h3c_meet_prize` as p LEFT JOIN `h3c_meet_room` as r WHERE p.`prize_name` != "no" AND r.`type` = p.`whichPlate`;
+[2017-04-03 07:47:16]WARNING: >>exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE p.`prize_name` != "no" ON r.`type` = p.`whichPlate`' at line 1' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(77): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/prize.php(5): Data::getPrizePerson('')
+#3 {main}
+[2017-04-03 07:47:16]WARNING: >>SELECT p.*, r.name FROM `h3c_meet_prize` as p LEFT JOIN `h3c_meet_room` as r WHERE p.`prize_name` != "no" ON r.`type` = p.`whichPlate`;
+[2017-04-03 07:47:18]WARNING: >>exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE p.`prize_name` != "no" ON r.`type` = p.`whichPlate`' at line 1' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(77): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/prize.php(5): Data::getPrizePerson('')
+#3 {main}
+[2017-04-03 07:47:18]WARNING: >>SELECT p.*, r.name FROM `h3c_meet_prize` as p LEFT JOIN `h3c_meet_room` as r WHERE p.`prize_name` != "no" ON r.`type` = p.`whichPlate`;
+[2017-04-03 07:48:32]WARNING: >>exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.type' in 'where clause'' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(77): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/prize.php(5): Data::getPrizePerson('fen')
+#3 {main}
+[2017-04-03 07:48:32]WARNING: >>SELECT p.*, r.name FROM `h3c_meet_prize` as p LEFT JOIN `h3c_meet_room` as r ON r.`type` = p.`whichPlate` WHERE p.`type` = "fen" AND p.`prize_name` != "no";

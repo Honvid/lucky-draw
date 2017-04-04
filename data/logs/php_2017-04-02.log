@@ -1,0 +1,136 @@
+[2017-04-02 22:59:16]WARNING: >>exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(73): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/place.php(21): Data::updatePlaces(Array, 'fen')
+#3 {main}
+[2017-04-02 22:59:16]WARNING: >>UPDATE `h3c_meet_room` SET 
+            `name` = :name, 
+            `type` = :type, 
+            `prize_one` = :prize_one,
+            `prize_one_num` = :prize_one_num,
+            `prize_one_status` = :prize_one_status,
+            `prize_two` = :prize_two,
+            `prize_two_num` = :prize_two_num,
+            `prize_two_status` = :prize_two_status,
+            `prize_three` = :prize_three,
+            `prize_three_num` = :prize_three_num,
+            `prize_three_status` = :prize_three_status,
+             WHERE `type` = :default_type;
+[2017-04-02 23:01:43]WARNING: >>exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(73): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/place.php(21): Data::updatePlaces(Array, 'fen')
+#3 {main}
+[2017-04-02 23:01:43]WARNING: >>UPDATE `h3c_meet_room` SET 
+            `name` = :title, 
+            `type` = :fen, 
+            `prize_one` = :prize_one,
+            `prize_one_num` = :prize_one_num,
+            `prize_one_status` = :prize_one_status,
+            `prize_two` = :prize_two,
+            `prize_two_num` = :prize_two_num,
+            `prize_two_status` = :prize_two_status,
+            `prize_three` = :prize_three,
+            `prize_three_num` = :prize_three_num,
+            `prize_three_status` = :prize_three_status,
+             WHERE `type` = :default_type;
+[2017-04-02 23:02:48]WARNING: >>exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(73): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/place.php(21): Data::updatePlaces(Array, 'fen')
+#3 {main}
+[2017-04-02 23:02:48]WARNING: >>UPDATE `h3c_meet_room` SET 
+            `name` = :title, 
+            `type` = :fen, 
+            `prize_one` = :prize_one,
+            `prize_one_num` = :prize_one_num,
+            `prize_one_status` = :prize_one_status,
+            `prize_two` = :prize_two,
+            `prize_two_num` = :prize_two_num,
+            `prize_two_status` = :prize_two_status,
+            `prize_three` = :prize_three,
+            `prize_three_num` = :prize_three_num,
+            `prize_three_status` = :prize_three_status,
+             WHERE `type` = :default_type;
+[2017-04-02 23:04:58]WARNING: >>exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(73): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/place.php(21): Data::updatePlaces(Array, 'fen')
+#3 {main}
+[2017-04-02 23:04:58]WARNING: >>UPDATE `h3c_meet_room` SET 
+            `name` = :title, 
+            `type` = :fen, 
+            `prize_one` = :prize_one,
+            `prize_one_num` = :prize_one_num,
+            `prize_one_status` = :prize_one_status,
+            `prize_two` = :prize_two,
+            `prize_two_num` = :prize_two_num,
+            `prize_two_status` = :prize_two_status,
+            `prize_three` = :prize_three,
+            `prize_three_num` = :prize_three_num,
+            `prize_three_status` = :prize_three_status,
+             WHERE `type` = :default_type;
+[2017-04-02 23:10:36]WARNING: >>exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(73): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/place.php(21): Data::updatePlaces(Array, 'fen')
+#3 {main}
+[2017-04-02 23:10:36]WARNING: >>UPDATE `h3c_meet_room` SET 
+            `name` = :title, 
+            `type` = :fen, 
+            `prize_one` = :prize_one,
+            `prize_one_num` = :prize_one_num,
+            `prize_one_status` = :prize_one_status,
+            `prize_two` = :prize_two,
+            `prize_two_num` = :prize_two_num,
+            `prize_two_status` = :prize_two_status,
+            `prize_three` = :prize_three,
+            `prize_three_num` = :prize_three_num,
+            `prize_three_status` = :prize_three_status
+             WHERE `type` = :default_type;
+[2017-04-02 23:11:09]WARNING: >>exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(73): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/place.php(21): Data::updatePlaces(Array, 'fen')
+#3 {main}
+[2017-04-02 23:11:09]WARNING: >>UPDATE `h3c_meet_room` SET 
+            `name` = :title, 
+            `type` = :fen, 
+            `prize_one` = :prize_one,
+            `prize_one_num` = :prize_one_num,
+            `prize_one_status` = :prize_one_status,
+            `prize_two` = :prize_two,
+            `prize_two_num` = :prize_two_num,
+            `prize_two_status` = :prize_two_status,
+            `prize_three` = :prize_three,
+            `prize_three_num` = :prize_three_num,
+            `prize_three_status` = :prize_three_status
+             WHERE `type` = :default_type;
+[2017-04-02 23:17:32]WARNING: >>exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: no parameters were bound' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(61): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/place.php(23): Data::updatePlaces(Array)
+#3 {main}
+[2017-04-02 23:17:32]WARNING: >>INSERT INTO `h3c_meet_room` (`name`, `type`, prize_one, 
+              prize_one_num, prize_one_status, prize_two, prize_two_num, prize_two_status, 
+              prize_three, prize_three_num, prize_three_status, create_time) VALUE (:title, :fen, :prize_one, 
+              :prize_one_num, :prize_one_status, :prize_two, :prize_two_num, :prize_two_status, 
+              :prize_three, :prize_three_num, :prize_three_status, :create_time)
+[2017-04-02 23:17:40]WARNING: >>exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: no parameters were bound' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(61): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/place.php(23): Data::updatePlaces(Array)
+#3 {main}
+[2017-04-02 23:17:40]WARNING: >>INSERT INTO `h3c_meet_room` (`name`, `type`, prize_one, 
+              prize_one_num, prize_one_status, prize_two, prize_two_num, prize_two_status, 
+              prize_three, prize_three_num, prize_three_status, create_time) VALUE (:title, :fen, :prize_one, 
+              :prize_one_num, :prize_one_status, :prize_two, :prize_two_num, :prize_two_status, 
+              :prize_three, :prize_three_num, :prize_three_status, :create_time)

@@ -1,0 +1,55 @@
+[2017-04-01 10:05:27]WARNING: >>execute cost: 2.1699328422546 seconds.SQL:SELECT * FROM `h3c_meet_user`
+[2017-04-01 10:07:05]NOTICE: >>PDO connection cost: 3.5072689056396 seconds.db driver:mysql:host=182.92.167.77;port=3306;dbname=h3c;charset=utf8
+[2017-04-01 10:07:05]NOTICE: >>prepare sql cost: 3.5077469348907 seconds.SQL:SELECT * FROM `h3c_meet_user`
+[2017-04-01 10:07:51]WARNING: >>execute cost: 45.758652925491 seconds.SQL:SELECT * FROM `h3c_meet_user`
+[2017-04-01 10:24:10]WARNING: >>execute cost: 32.70467710495 seconds.SQL:SELECT * FROM `h3c_meet_user`
+[2017-04-01 11:19:09]WARNING: >>execute cost: 3.6760058403015 seconds.SQL:SELECT `uid` FROM `h3c_meet_prize` WHERE which_plate =:fen
+[2017-04-01 12:05:24]WARNING: >>connection lost!
+Caught exception: SQLSTATE[HY000] [2006] MySQL server has gone away
+mysql:host=182.92.167.77;port=3306;dbname=h3c;charset=utf8
+[2017-04-01 12:05:25]NOTICE: >>prepare sql cost: 7226.7548840046 seconds.SQL:SELECT * FROM `h3c_meet_user`
+[2017-04-01 12:08:28]WARNING: >>connection lost!
+Caught exception: SQLSTATE[HY000] [2006] MySQL server has gone away
+mysql:host=182.92.167.77;port=3306;dbname=h3c;charset=utf8
+[2017-04-01 12:08:29]NOTICE: >>prepare sql cost: 7300.3278560638 seconds.SQL:SELECT * FROM `h3c_meet_user`
+[2017-04-01 12:28:11]WARNING: >>execute cost: 7359.952641964 seconds.SQL:SELECT * FROM `h3c_meet_user`
+[2017-04-01 13:26:41]WARNING: >>connection lost!
+Caught exception: SQLSTATE[HY000] [2006] MySQL server has gone away
+mysql:host=182.92.167.77;port=3306;dbname=h3c;charset=utf8
+[2017-04-01 13:26:42]NOTICE: >>prepare sql cost: 7217.1044101715 seconds.SQL:SELECT * FROM `h3c_meet_prize` WHERE which_plate = :fen
+[2017-04-01 16:44:51]WARNING: >>exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'h3c.h3c_meet_place' doesn't exist' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(83): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(61): Data::updatePlace('fen', 'prize_one_statu...')
+#3 /Library/WebServer/WorkSpace/lucky-draw/judge.php(24): Data::getLuckyUsers(Array, '\xE4\xB8\x80\xE7\xAD\x89\xE5\xA5\x96', 'fen', '1', 'prize_one_statu...')
+#4 /Library/WebServer/WorkSpace/lucky-draw/judge.php(35): getUser('fen', '1', '\xE4\xB8\x80\xE7\xAD\x89\xE5\xA5\x96', 'prize_one_statu...')
+#5 {main}
+[2017-04-01 16:44:51]WARNING: >>UPDATE `h3c_meet_place` SET `prize_one_status` = 1 WHERE `type` = "fen";
+[2017-04-01 16:46:46]WARNING: >>exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'h3c.h3c_meet_place' doesn't exist' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(83): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(61): Data::updatePlace('fen', 'prize_one_statu...')
+#3 /Library/WebServer/WorkSpace/lucky-draw/judge.php(24): Data::getLuckyUsers(Array, '\xE4\xB8\x80\xE7\xAD\x89\xE5\xA5\x96', 'fen', '1', 'prize_one_statu...')
+#4 /Library/WebServer/WorkSpace/lucky-draw/judge.php(35): getUser('fen', '1', '\xE4\xB8\x80\xE7\xAD\x89\xE5\xA5\x96', 'prize_one_statu...')
+#5 {main}
+[2017-04-01 16:46:46]WARNING: >>UPDATE `h3c_meet_place` SET `prize_one_status` = 1 WHERE `type` = "fen";
+[2017-04-01 16:53:41]WARNING: >>exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`uid` IN (456)' at line 1' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(72): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(61): Data::updatePrize('456', '\xE4\xB8\x80\xE7\xAD\x89\xE5\xA5\x96', '1', 'fen')
+#3 /Library/WebServer/WorkSpace/lucky-draw/judge.php(24): Data::getLuckyUsers(Array, '\xE4\xB8\x80\xE7\xAD\x89\xE5\xA5\x96', 'fen', '1', 'prize_one_statu...')
+#4 /Library/WebServer/WorkSpace/lucky-draw/judge.php(35): getUser('fen', '1', '\xE4\xB8\x80\xE7\xAD\x89\xE5\xA5\x96', 'prize_one_statu...')
+#5 {main}
+[2017-04-01 16:53:41]WARNING: >>UPDATE `h3c_meet_prize` SET `prize_name` = "一等奖" WHERE `whichPlate` = "fen"  `uid` IN (456);
+[2017-04-01 17:00:02]NOTICE: >>PDO connection cost: 2.7175641059875 seconds.db driver:mysql:host=182.92.167.77;port=3306;dbname=h3c;charset=utf8
+[2017-04-01 17:00:02]NOTICE: >>prepare sql cost: 2.7204618453979 seconds.SQL:SELECT * FROM `h3c_meet_room` WHERE `type` = :type
+[2017-04-01 21:26:11]WARNING: >>exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'type' in 'field list'' in /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php:220
+Stack trace:
+#0 /Library/WebServer/WorkSpace/lucky-draw/helper/MySql.class.php(220): PDOStatement->execute()
+#1 /Library/WebServer/WorkSpace/lucky-draw/data/Data.class.php(51): MySQL->execute()
+#2 /Library/WebServer/WorkSpace/lucky-draw/index.php(4): Data::countPerson()
+#3 {main}
+[2017-04-01 21:26:11]WARNING: >>SELECT type, COUNT(type) FROM `h3c_meet_prize` GROUP BY `type` HAVING (COUNT(type) > 1)

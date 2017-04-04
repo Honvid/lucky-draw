@@ -1,6 +1,7 @@
 body{
     background-image: url("../images/lucky/background/pure.jpg");
     background-size: 100%;
+    overflow-x:hidden
 }
 h2{
     color:#fff;
@@ -177,4 +178,40 @@ h2{
 .box{
     width: 80%;
     margin: 0 auto;
+}
+.dinner-list, .dinner-list-two, .dinner-list-one{
+    width: 20%;
+    margin: 2px 0 2px 0;
+    float: left;
+}
+.dinner-list .user-info{
+    text-align: left;
+    background: url("../images/lucky/img_bg.png") no-repeat left center;
+    background-size: 50px;
+    margin-bottom: 0px;
+}
+.dinner-list-one .user-info{
+    margin-top: 30%;
+}
+.dinner-list-two .user-info{
+    background: url("../images/lucky/img_bg.png") no-repeat center top;
+    background-size: 50px;
+    margin-bottom: 0px;
+}
+.dinner-list .user-info img{
+    width: 44px;
+    height: 44px;
+    margin-left: 3px;
+}
+.dinner-list-two .user-info img{
+    width: 44px;
+    height: 44px;
+    margin-top: 2px;
+}
+.dinner-list .user-info p{
+    font-size: 14px;
+    line-height: 58px;
+}
+.dinner-list-two .user-info p{
+    font-size: 16px;
 }
