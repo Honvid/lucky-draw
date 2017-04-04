@@ -12,7 +12,7 @@ function getUser($type, $number, $prize, $name){
         return [];
     }
     $total = count($result);
-    if($number > $total + 5){
+    if($number > $total - 5){
         exit(json_encode(['code' => 500, 'msg' => '抽奖人数不够', 'data' => []], JSON_UNESCAPED_UNICODE));
     }
     $keys = getKeys($number, $total - 1);
