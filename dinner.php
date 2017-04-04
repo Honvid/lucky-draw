@@ -21,7 +21,7 @@ if(empty($place)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Honvid">
     <link rel="shortcut icon" href="assets/images/favicon_1.ico">
-    <title>晚宴抽奖</title>
+    <title>2017新华三合作伙伴颁奖晚宴</title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/lucky.css" rel="stylesheet" type="text/css" />
 </head>
