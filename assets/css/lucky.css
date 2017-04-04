@@ -1,5 +1,5 @@
-body {
-    background-image: url("../images/lucky/bg.jpg");
+.fen-bg-phone {
+    background-image: url("../images/lucky/background/fen-bg-phone.jpg");
     background-size: cover;
 }
 h2{
@@ -9,7 +9,7 @@ h2{
 .lucky-body{
     width: 50%;
     margin: 20px auto;
-    background-image: url("../images/lucky/step1_bg.jpg");
+    /*background-image: url("../images/lucky/step1_bg.jpg");*/
     background-size: cover;
 }
 .lucky-body-two{
@@ -20,8 +20,8 @@ h2{
 }
 .lucky-logo{
     margin: 0 auto;
-    width: 70%;
-    margin-top: 10%;
+    width: 66%;
+    margin-top: 9%;
 }
 .user-info{
     background: url("../images/lucky/img_bg.png") no-repeat 50% top;

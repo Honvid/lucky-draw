@@ -25,7 +25,7 @@ if(empty($place)) {
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/lucky.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body class="fen-bg-phone">
 <div style="margin: 0 auto;">
     <div class="row">
         <div class="col-md-12 text-center">
@@ -82,13 +82,6 @@ if(empty($place)) {
             <div class="col-md-12 text-center">
                 <img width="50" id="close" src="assets/images/lucky/close_btn.png">
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 text-center" style="margin-top: 3%; margin-bottom: 1%;">
-            <p class="copyright">由新华三集团和英特尔共同呈现</p>
-            <p class="copyright">英特尔，让效能更强劲</p>
-            <p class="copyright">英特尔和英特尔标识是英特尔公司在美国和/或其他国家（地区）的商标</p>
         </div>
     </div>
 </div>
