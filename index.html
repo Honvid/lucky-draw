@@ -84,7 +84,7 @@
             }
         };
         if (!isMobile.any()) {
-//            alert('请使用手机浏览！');
+            alert('请使用手机浏览！');
             return false;
         }
         var uid = getUrlParam('uid');
@@ -94,13 +94,13 @@
         $('#submit img').on('click', function () {
             var tel = $('#phone');
             if(tel.val() == '') {
-//                alert('请输入手机号！');
+                alert('请输入手机号！');
                 tel.focus();
                 return false;
             }
             var reg = /^0?1\d{10}$/;
             if (!reg.test(tel.val())) {
-//                alert("请输入正确的手机号码！");
+                alert("请输入正确的手机号码！");
                 return false;
             }
             $.getJSON('http://mobile-show.cn/h3c/hzmeet/bg/dinnerphone?callback=?&uid='+uid+'&phone='+tel.val(), function (data) {
