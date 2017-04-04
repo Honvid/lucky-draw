@@ -49,7 +49,7 @@ class Data
             `prize_three` = "'.$data['prize_three'].'",
             `prize_three_num` = '.intval($data['prize_three_num']).',
             `prize_three_status` = '.intval($data['prize_three_status']).'
-             WHERE `type` = "'.$data['type'].'";';
+             WHERE `type` = "'.$type.'";';
         }else{
             $sql = 'INSERT INTO `h3c_meet_room` (`name`, `type`, prize_one, 
               prize_one_num, prize_one_status, prize_two, prize_two_num, prize_two_status, 

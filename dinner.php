@@ -29,7 +29,7 @@ if(empty($place)) {
 <div style="margin: 0 auto;">
     <div class="row">
         <div class="col-md-12 text-center">
-            <img class="lucky-logo" src="assets/images/lucky/title/<?php echo $type; ?>.png" alt="">
+            <img class="lucky-logo" src="assets/images/lucky/title1.png" alt="">
         </div>
     </div>
     <div class="step-one" style="display: block">
@@ -103,7 +103,7 @@ if(empty($place)) {
         }
         animate.each(function () {
             $(this).myScroll({
-                speed:100, //数值越大，速度越慢
+                speed:40, //数值越大，速度越慢
                 rowHeight:34, //li的高度
                 margin:1
             });
@@ -164,7 +164,7 @@ if(empty($place)) {
                     $(this).myScroll({
                         speed:1, //数值越大，速度越慢
                         rowHeight:34, //li的高度
-                        margin:40
+                        margin:20
                     });
                 });
             }else if ($(this).text() == '停止抽奖'){
