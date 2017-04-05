@@ -46,7 +46,7 @@ h2{
 }
 .user-info p {
     font-size: 16px;
-    color: yellow;
+    color: #d2ad73;
 }
 .prize-total{
     text-align: center;
@@ -74,7 +74,7 @@ h2{
 }
 .btn-prize:link{
     text-decoration: none;
-    color: yellow;
+    color: #ffed8b;
 }
 .btn-prize:hover,.btn-prize.active{
     background-image: url(../images/lucky/btn.png);

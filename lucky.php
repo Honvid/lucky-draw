@@ -226,10 +226,10 @@ if(empty($place)) {
                                 list += '           <img src="' + data.data[0].headimgurl + '" alt="">';
                                 list += '       </div>';
                                 list += '    <div class="col-md-4 text-center">';
-                                list += '       <p style="margin: 0; margin-top: 10px; color: yellow">恭喜此用户获得</p>';
-                                list += '       <p style="margin: 0; color: yellow">'+prize.val()+'</p>';
-                                list += '       <hr style="margin: 5px 0; color: yellow">';
-                                list += '       <p style="margin: 0; color: yellow;font-size: 24px;font-weight: bold;">' + str.substr(0,3)+"****"+str.substr(7) + '</p>';
+                                list += '       <p style="margin: 0; margin-top: 10px; color: #d2ad73">恭喜此用户获得</p>';
+                                list += '       <p style="margin: 0; color: #d2ad73">'+prize.val()+'</p>';
+                                list += '       <hr style="margin: 5px 0; border-color: #d2ad73">';
+                                list += '       <p style="margin: 0; color: #d2ad73;font-size: 24px;font-weight: bold;">' + str.substr(0,3)+"****"+str.substr(7) + '</p>';
                                 list += '    </div>';
                                 list += '</div>';
                             }else {
