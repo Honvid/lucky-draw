@@ -34,7 +34,7 @@
         }
         .overlay{
             display: none;
-            position: absolute;
+            position: fixed;
             top: 0;
             text-align: center;
             height: 100%;
@@ -74,13 +74,13 @@
             var tel = $('#phone');
             if(tel.val() == '') {
                 $('.overlay img').attr('src', 'assets/images/correct.png');
-                $('.overlay').show();
+                $('.overlay').css('height', document.body.scrollHeight).show();
                 return false;
             }
             var reg = /^0?1\d{10}$/;
             if (!reg.test(tel.val())) {
                 $('.overlay img').attr('src', 'assets/images/correct.png');
-                $('.overlay').show();
+                $('.overlay').css('height', document.body.scrollHeight).show();
                 return false;
             }
             $.getJSON('http://mobile-show.cn/h3c/hzmeet/bg/dinnerphone?callback=?&uid='+uid+'&phone='+tel.val(), function (data) {
@@ -89,7 +89,7 @@
                     $('.overlay').css('height', document.body.scrollHeight).show();
                 }else{
                     $('.overlay img').attr('src', 'assets/images/retry.png');
-                    $('.overlay').show();
+                    $('.overlay').css('height', document.body.scrollHeight).show();
                 }
             })
         })

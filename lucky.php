@@ -103,7 +103,7 @@ if(empty($place)) {
 <style>
     .overlay{
         display: none;
-        position: absolute;
+        position: fixed;
         top: 0;
         text-align: center;
         height: 100%;
@@ -156,7 +156,7 @@ if(empty($place)) {
             number.val(<?php echo $place['prize_one_num']; ?>);
             <?php }else{ ?>
             $('.overlay img').attr('src', 'assets/images/lucky/no-prize.png');
-            $('.overlay').show();
+            $('.overlay').css('height', document.body.scrollHeight).show();
             <?php } ?>
         });
         $('#two').click(function () {
@@ -169,7 +169,7 @@ if(empty($place)) {
             number.val(<?php echo $place['prize_two_num']; ?>);
             <?php }else{ ?>
             $('.overlay img').attr('src', 'assets/images/lucky/no-prize.png');
-            $('.overlay').show();
+            $('.overlay').css('height', document.body.scrollHeight).show();
             <?php } ?>
         });
         $('#three').click(function () {
@@ -182,14 +182,14 @@ if(empty($place)) {
             number.val(<?php echo $place['prize_three_num']; ?>);
             <?php }else{ ?>
                 $('.overlay img').attr('src', 'assets/images/lucky/no-prize.png');
-                $('.overlay').show();
+                $('.overlay').css('height', document.body.scrollHeight).show();
             <?php } ?>
         });
         $('#start').click(function () {
             if($(this).text() == '开始抽奖') {
                 if (prize.val() == 0) {
                     $('.overlay img').attr('src', 'assets/images/lucky/no-prize.png');
-                    $('.overlay').show();
+                    $('.overlay').css('height', document.body.scrollHeight).show();
                 }
                 $(this).addClass('active');
                 $(this).text('停止抽奖');
@@ -249,7 +249,7 @@ if(empty($place)) {
                             $('.list').append(list);
                         }else{
                             $('.overlay img').attr('src', 'assets/images/lucky/not-enough.png');
-                            $('.overlay').show();
+                            $('.overlay').css('height', document.body.scrollHeight).show();
                         }
                     },
                     error:function () {
