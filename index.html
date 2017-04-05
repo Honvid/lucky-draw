@@ -88,7 +88,7 @@
             $.getJSON('http://mobile-show.cn/h3c/hzmeet/bg/dinnerphone?callback=?&uid='+uid+'&phone='+tel.val(), function (data) {
                 if(data.code == 200){
                     $('.overlay img').attr('src', 'assets/images/alert.png');
-                    $('.overlay').show();
+                    $('.overlay').css('height', document.body.scrollHeight).show();
                 }else{
                     $('.overlay img').attr('src', 'assets/images/retry.png');
                     $('.overlay').show();
