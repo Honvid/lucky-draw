@@ -42,7 +42,7 @@
             width: 100%;
         }
         .overlay img{
-            margin-top: 45%;
+            margin-top: 60%;
             width: 250px;
         }
     </style>
@@ -75,14 +75,12 @@
             if(tel.val() == '') {
                 $('.overlay img').attr('src', 'assets/images/correct.png');
                 $('.overlay').show();
-                tel.focus();
                 return false;
             }
             var reg = /^0?1\d{10}$/;
             if (!reg.test(tel.val())) {
                 $('.overlay img').attr('src', 'assets/images/correct.png');
                 $('.overlay').show();
-                tel.focus();
                 return false;
             }
             $.getJSON('http://mobile-show.cn/h3c/hzmeet/bg/dinnerphone?callback=?&uid='+uid+'&phone='+tel.val(), function (data) {
