@@ -15,6 +15,12 @@ if($action == 1 && !empty($type)) {
         exit(json_encode(['code' => 200, 'msg' => '获取成功', 'data' => $place], JSON_UNESCAPED_UNICODE));
     }
 }
+if($action == 4 && !empty($type)) {
+    $place = Data::clearPrize($type);
+    if(!empty($place)) {
+        exit(json_encode(['code' => 200, 'msg' => '清除测试数据成功！', 'data' => $place], JSON_UNESCAPED_UNICODE));
+    }
+}
 if($action == 2) {
     // 更新
     if(!empty($default)) {

@@ -127,6 +127,19 @@ class Data
         return $result;
     }
 
+    public static function clearPrize($type)
+    {
+        $db = new MySQL(self::DB);
+        $sql = 'UPDATE `h3c_meet_prize` SET `prize_name` = "no" WHERE `whichPlate` = "'.$type.'";';
+
+        $sql .= 'UPDATE `h3c_meet_room` SET `prize_one_status` = 0,`prize_two_status` = 0,`prize_three_status` = 0 WHERE `type` = "'.$type.'"';
+        $db->prepare($sql);
+        $db->execute();
+        $result = $db->getrowcount();
+        $db->close();
+        return $result > 0;
+    }
+
     public static function getLuckyUsers($id, $prize, $type, $number, $name)
     {
         $ids = '';

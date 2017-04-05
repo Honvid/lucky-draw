@@ -33,7 +33,7 @@
                                             <td><?php echo $key+1; ?></td>
                                             <td>
                                                 <p><?php echo $value['name']; ?></p>
-                                                <p>http://lucky.honvid.com/lucky.php?type=<?php echo $value['type']; ?></p>
+                                                <p><a href="http://active.com/lucky.php?type=<?php echo $value['type']; ?>" target="_blank">链接</a></p>
                                             </td>
                                             <td><p><?php echo $value['type']; ?></p></td>
                                             <td style="">
@@ -47,6 +47,7 @@
                                             <td class="actions">
                                                 <?php if(isset($_GET['role']) && $_GET['role'] == 'admin') { ?>
                                                 <a href="javascript:;" data-key="<?php echo $value['type']; ?>" class="btn btn-warning waves-effect waves-light edit">编辑</a>
+                                                    <a href="javascript:;" data-key="<?php echo $value['type']; ?>" class="btn btn-danger waves-effect waves-light clear">清空测试数据</a>
                                                 <?php } ?>
                                                 <a href="/prize.php?type=<?php echo $value['type']; ?>" class="btn btn-success waves-effect waves-light">查看获奖名单</a>
                                             </td>
@@ -101,6 +102,21 @@
     $(document).ready(function () {
         $('#add').on('click', function () {
             $('#myModal').modal('show');
+        });
+        $('.clear').on('click', function () {
+            var type = $(this).data('key');
+            $.ajax({
+                url: '/place.php',
+                data: {'type': type, 'action': 4},
+                type: 'POST',
+                success: function (response) {
+                    alert(response.msg);
+                    window.location.reload();
+                },
+                error: function (message) {
+                    console.log(message)
+                }
+            });
         });
         $('.edit').on('click', function () {
             var type = $(this).data('key');

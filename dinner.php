@@ -132,8 +132,7 @@ if(empty($place)) {
         $('#start').click(function () {
             if($(this).text() == '开始抽奖') {
                 if (prize.val() == 0) {
-                    alert("请选择抽奖的等级哦");
-                    return false;
+                    window.location.reload();
                 }
                 $(this).addClass('active');
                 $(this).text('停止抽奖');
@@ -169,6 +168,7 @@ if(empty($place)) {
                                 list += '<p style="padding-top: 40%; color: yellow"><img src="assets/images/lucky/yi-prize-dinner.png" alt=""></p>';
                             }else if(prize_name.val() == 'prize_two_status') {
                                 $('#bg').attr('src', 'assets/images/lucky/background/er-dinner.png');
+                                $('.lucky-body-two').css('margin', '9% auto 1% auto');
                                 $.each(data.data, function (i, val) {
                                     var str = val.dinnerphone;
                                     list += '<div class="dinner-list-two">';
@@ -181,6 +181,7 @@ if(empty($place)) {
                                 list += '<p style="padding-top: 40%; color: yellow"><img src="assets/images/lucky/er-prize-dinner.png" alt=""></p>';
                             }else if(prize_name.val() == 'prize_three_status') {
                                 $('#bg').attr('src', 'assets/images/lucky/background/san-dinner.png');
+                                $('.lucky-body-two').css('width', '50%');
                                 $.each(data.data, function (i, val) {
                                     var str = val.dinnerphone;
                                     list += '<div class="dinner-list">';
@@ -195,10 +196,11 @@ if(empty($place)) {
                             $('.list').append(list);
                         }else{
                             alert(data.msg);
+                            window.location.reload();
                         }
                     },
                     error:function () {
-                        alert('服务器错误！');
+                        window.location.reload();
                     }
                 });
             }else{

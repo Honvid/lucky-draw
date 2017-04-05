@@ -66,27 +66,6 @@
         s.parentNode.insertBefore(hm, s);
     })();
     $(function () {
-        var isMobile = {
-            Android: function () {
-                return navigator.userAgent.match(/Android/i) ? true : false;
-            },
-            BlackBerry: function () {
-                return navigator.userAgent.match(/BlackBerry/i) ? true : false;
-            },
-            iOS: function () {
-                return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
-            },
-            Windows: function () {
-                return navigator.userAgent.match(/IEMobile/i) ? true : false;
-            },
-            any: function () {
-                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
-            }
-        };
-        if (!isMobile.any()) {
-            alert('请使用手机浏览！');
-            return false;
-        }
         var uid = getUrlParam('uid');
         if(uid === null) {
             window.location.href = 'http://www.mobile-show.cn/h3c/hzmeet/bg/dinnerauth';
@@ -94,21 +73,25 @@
         $('#submit img').on('click', function () {
             var tel = $('#phone');
             if(tel.val() == '') {
-                alert('请输入手机号！');
+                $('.overlay img').attr('src', 'assets/images/correct.png');
+                $('.overlay').show();
                 tel.focus();
                 return false;
             }
             var reg = /^0?1\d{10}$/;
             if (!reg.test(tel.val())) {
-                alert("请输入正确的手机号码！");
+                $('.overlay img').attr('src', 'assets/images/correct.png');
+                $('.overlay').show();
+                tel.focus();
                 return false;
             }
             $.getJSON('http://mobile-show.cn/h3c/hzmeet/bg/dinnerphone?callback=?&uid='+uid+'&phone='+tel.val(), function (data) {
                 if(data.code == 200){
+                    $('.overlay img').attr('src', 'assets/images/alert.png');
                     $('.overlay').show();
                 }else{
-                    alert('提交失败，请重试！');
-                    window.location.reload();
+                    $('.overlay img').attr('src', 'assets/images/retry.png');
+                    $('.overlay').show();
                 }
             })
         })

@@ -136,8 +136,6 @@ if(empty($place)) {
             prize_name.val('prize_one_status');
             prize.val('<?php echo $place['prize_one']; ?>');
             number.val(<?php echo $place['prize_one_num']; ?>);
-            <?php }else{ ?>
-            alert('一等奖已经抽完');
             <?php } ?>
         });
         $('#two').click(function () {
@@ -148,8 +146,6 @@ if(empty($place)) {
             prize_name.val('prize_two_status');
             prize.val('<?php echo $place['prize_two']; ?>');
             number.val(<?php echo $place['prize_two_num']; ?>);
-            <?php }else{ ?>
-            alert('二等奖已经抽完');
             <?php } ?>
         });
         $('#three').click(function () {
@@ -160,16 +156,10 @@ if(empty($place)) {
             prize_name.val('prize_three_status');
             prize.val('<?php echo $place['prize_three']; ?>');
             number.val(<?php echo $place['prize_three_num']; ?>);
-            <?php }else{ ?>
-            alert('三等奖已经抽完');
             <?php } ?>
         });
         $('#start').click(function () {
             if($(this).text() == '开始抽奖') {
-                if (prize.val() == 0) {
-                    alert("请选择抽奖的等级哦");
-                    return false;
-                }
                 $(this).addClass('active');
                 $(this).text('停止抽奖');
                 animate.each(function () {
