@@ -112,7 +112,7 @@ if(empty($place)) {
     }
     .overlay img{
         margin-top: 20%;
-        width: 40%;
+        width: 30%;
     }
 </style>
 <div class="overlay">
