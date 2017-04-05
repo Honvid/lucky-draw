@@ -101,6 +101,24 @@ if(empty($place)) {
         </div>
     </div>
 </div>
+<style>
+    .overlay{
+        display: none;
+        position: absolute;
+        top: 0;
+        text-align: center;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        width: 100%;
+    }
+    .overlay img{
+        margin-top: 20%;
+        width: 40%;
+    }
+</style>
+<div class="overlay">
+    <img src="assets/images/lucky/not-enough.png" alt="">
+</div>
 </body>
 <script src="//cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="assets/js/scroll.js"></script>
@@ -132,7 +150,8 @@ if(empty($place)) {
         $('#start').click(function () {
             if($(this).text() == '开始抽奖') {
                 if (prize.val() == 0) {
-                    window.location.reload();
+                    $('.overlay img').attr('src', 'assets/images/lucky/no-prize.png');
+                    $('.overlay').show();
                 }
                 $(this).addClass('active');
                 $(this).text('停止抽奖');
@@ -195,8 +214,8 @@ if(empty($place)) {
                             }
                             $('.list').append(list);
                         }else{
-                            alert(data.msg);
-                            window.location.reload();
+                            $('.overlay img').attr('src', 'assets/images/lucky/not-enough.png');
+                            $('.overlay').show();
                         }
                     },
                     error:function () {
@@ -209,7 +228,10 @@ if(empty($place)) {
         });
         $('#close').click(function () {
             window.location.href = '/lucky.php?type='+ "<?php echo $type; ?>";
-        })
+        });
+        $('.overlay').on('click', function () {
+            window.location.reload();
+        });
     });
 </script>
 </html>

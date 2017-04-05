@@ -26,7 +26,7 @@ if(empty($place)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Honvid">
     <link rel="shortcut icon" href="assets/images/favicon_1.ico">
-    <title>抽奖</title>
+    <title><?php echo $place['name']; ?></title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/lucky.css" rel="stylesheet" type="text/css" />
 </head>
@@ -100,6 +100,24 @@ if(empty($place)) {
         </div>
     </div>
 </div>
+<style>
+    .overlay{
+        display: none;
+        position: absolute;
+        top: 0;
+        text-align: center;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        width: 100%;
+    }
+    .overlay img{
+        margin-top: 20%;
+        width: 40%;
+    }
+</style>
+<div class="overlay">
+    <img src="assets/images/lucky/not-enough.png" alt="">
+</div>
 </body>
 <script src="//cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="assets/js/scroll.js"></script>
@@ -136,6 +154,9 @@ if(empty($place)) {
             prize_name.val('prize_one_status');
             prize.val('<?php echo $place['prize_one']; ?>');
             number.val(<?php echo $place['prize_one_num']; ?>);
+            <?php }else{ ?>
+            $('.overlay img').attr('src', 'assets/images/lucky/no-prize.png');
+            $('.overlay').show();
             <?php } ?>
         });
         $('#two').click(function () {
@@ -146,6 +167,9 @@ if(empty($place)) {
             prize_name.val('prize_two_status');
             prize.val('<?php echo $place['prize_two']; ?>');
             number.val(<?php echo $place['prize_two_num']; ?>);
+            <?php }else{ ?>
+            $('.overlay img').attr('src', 'assets/images/lucky/no-prize.png');
+            $('.overlay').show();
             <?php } ?>
         });
         $('#three').click(function () {
@@ -156,10 +180,17 @@ if(empty($place)) {
             prize_name.val('prize_three_status');
             prize.val('<?php echo $place['prize_three']; ?>');
             number.val(<?php echo $place['prize_three_num']; ?>);
+            <?php }else{ ?>
+                $('.overlay img').attr('src', 'assets/images/lucky/no-prize.png');
+                $('.overlay').show();
             <?php } ?>
         });
         $('#start').click(function () {
             if($(this).text() == '开始抽奖') {
+                if (prize.val() == 0) {
+                    $('.overlay img').attr('src', 'assets/images/lucky/no-prize.png');
+                    $('.overlay').show();
+                }
                 $(this).addClass('active');
                 $(this).text('停止抽奖');
                 animate.each(function () {
@@ -217,11 +248,12 @@ if(empty($place)) {
                             }
                             $('.list').append(list);
                         }else{
-                            alert(data.msg);
+                            $('.overlay img').attr('src', 'assets/images/lucky/not-enough.png');
+                            $('.overlay').show();
                         }
                     },
                     error:function () {
-                        alert('服务器错误！');
+                        window.location.reload();
                     }
                 });
             }else{
@@ -230,7 +262,10 @@ if(empty($place)) {
         });
         $('#close').click(function () {
             window.location.href = '/lucky.php?type='+ "<?php echo $type; ?>";
-        })
+        });
+        $('.overlay').on('click', function () {
+            window.location.reload();
+        });
     });
 </script>
 </html>

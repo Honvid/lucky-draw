@@ -7,11 +7,13 @@
 class Data
 {
     const DB = 'h3c';
-
+    const ROOM = 'h3c_meet_room';
+    const USER = 'h3c_meet_user_test';
+    const PRIZE = 'h3c_meet_prize_test';
     public static function getUserCountByType($type)
     {
         $db = new MySQL(self::DB);
-        $sql = 'SELECT `uid` FROM `h3c_meet_prize` WHERE `whichPlate` = :type';
+        $sql = 'SELECT `uid` FROM `'.self::PRIZE.'` WHERE `whichPlate` = :type';
         $db->prepare($sql);
         $db->bind(':type', $type);
         $db->execute();
@@ -23,7 +25,7 @@ class Data
     public static function getPlace($type)
     {
         $db = new MySQL(self::DB);
-        $sql = 'SELECT * FROM `h3c_meet_room` WHERE `type` = :type';
+        $sql = 'SELECT * FROM `'.self::ROOM.'` WHERE `type` = :type';
         $db->prepare($sql);
         $db->bind(':type', $type);
         $db->execute();
@@ -37,7 +39,7 @@ class Data
         $db = new MySQL(self::DB);
 
         if($type) {
-            $sql = 'UPDATE `h3c_meet_room` SET 
+            $sql = 'UPDATE `'.self::ROOM.'` SET 
             `name` = "'.$data['name'].'", 
             `type` = "'.$data['type'].'", 
             `prize_one` = "'.$data['prize_one'].'",
@@ -51,7 +53,7 @@ class Data
             `prize_three_status` = '.intval($data['prize_three_status']).'
              WHERE `type` = "'.$type.'";';
         }else{
-            $sql = 'INSERT INTO `h3c_meet_room` (`name`, `type`, prize_one, 
+            $sql = 'INSERT INTO `'.self::ROOM.'` (`name`, `type`, prize_one, 
               prize_one_num, prize_one_status, prize_two, prize_two_num, prize_two_status, 
               prize_three, prize_three_num, prize_three_status, create_time) VALUE ("'.$data['name'].'", "'.$data['type'].'", "'.$data['prize_one'].'", 
               '.intval($data['prize_one_num']).', '.intval($data['prize_one_status']).',
@@ -69,14 +71,14 @@ class Data
     {
         $db = new MySQL(self::DB);
         if(empty($type)) {
-            $sql = 'SELECT p.*, r.name, u.* FROM `h3c_meet_prize` as p 
-              LEFT JOIN `h3c_meet_room` as r ON r.`type` = p.`whichPlate` 
-              LEFT JOIN `h3c_meet_user` as u ON u.`id` = p.`uid`
+            $sql = 'SELECT p.*, r.name, u.* FROM `'.self::PRIZE.'` as p 
+              LEFT JOIN `'.self::ROOM.'` as r ON r.`type` = p.`whichPlate` 
+              LEFT JOIN `'.self::USER.'` as u ON u.`id` = p.`uid`
               WHERE p.`prize_name` != "no";';
         }else{
-            $sql = 'SELECT p.*, r.name, u.* FROM `h3c_meet_prize` as p 
-              LEFT JOIN `h3c_meet_room` as r ON r.`type` = p.`whichPlate` 
-              LEFT JOIN `h3c_meet_user` as u ON u.`id` = p.`uid`
+            $sql = 'SELECT p.*, r.name, u.* FROM `'.self::PRIZE.'` as p 
+              LEFT JOIN `'.self::ROOM.'` as r ON r.`type` = p.`whichPlate` 
+              LEFT JOIN `'.self::USER.'` as u ON u.`id` = p.`uid`
               WHERE p.`whichPlate` = "'.$type.'" AND p.`prize_name` != "no";';
         }
         $db->prepare($sql);
@@ -89,7 +91,7 @@ class Data
     public static function getPlaceList()
     {
         $db = new MySQL(self::DB);
-        $sql = 'SELECT * FROM `h3c_meet_room`';
+        $sql = 'SELECT * FROM `'.self::ROOM.'`';
         $db->prepare($sql);
         $db->execute();
         $result = $db->getall();
@@ -100,7 +102,7 @@ class Data
     public static function countPerson()
     {
         $db = new MySQL(self::DB);
-        $sql = 'SELECT whichPlate, COUNT(whichPlate) as number FROM `h3c_meet_prize` GROUP BY `whichPlate`';
+        $sql = 'SELECT whichPlate, COUNT(whichPlate) as number FROM `'.self::PRIZE.'` GROUP BY `whichPlate`';
         $db->prepare($sql);
         $db->execute();
         $result = $db->getall();
@@ -117,8 +119,8 @@ class Data
     public static function getUserByType($type)
     {
         $db = new MySQL(self::DB);
-        $sql = 'SELECT `uid` FROM `h3c_meet_prize` WHERE `whichPlate` = :type AND `uid` NOT IN (
-                      SELECT uid FROM `h3c_meet_prize` WHERE `prize_name` != "no")';
+        $sql = 'SELECT `uid` FROM `'.self::PRIZE.'` WHERE `whichPlate` = :type AND `uid` NOT IN (
+                      SELECT uid FROM `'.self::PRIZE.'` WHERE `prize_name` != "no")';
         $db->prepare($sql);
         $db->bind(':type', $type);
         $db->execute();
@@ -130,14 +132,14 @@ class Data
     public static function clearPrize($type)
     {
         $db = new MySQL(self::DB);
-        $sql = 'UPDATE `h3c_meet_prize` SET `prize_name` = "no" WHERE `whichPlate` = "'.$type.'";';
+        $sql = 'UPDATE `'.self::PRIZE.'` SET `prize_name` = "no" WHERE `whichPlate` = "'.$type.'";';
 
-        $sql .= 'UPDATE `h3c_meet_room` SET `prize_one_status` = 0,`prize_two_status` = 0,`prize_three_status` = 0 WHERE `type` = "'.$type.'"';
+        $sql .= 'UPDATE `'.self::ROOM.'` SET `prize_one_status` = 0,`prize_two_status` = 0,`prize_three_status` = 0 WHERE `type` = "'.$type.'"';
         $db->prepare($sql);
         $db->execute();
         $result = $db->getrowcount();
         $db->close();
-        return $result > 0;
+        return $result;
     }
 
     public static function getLuckyUsers($id, $prize, $type, $number, $name)
@@ -148,7 +150,7 @@ class Data
         }
         $ids = ltrim($ids, ',');
         $db = new MySQL(self::DB);
-        $sql = 'SELECT * FROM `h3c_meet_user` WHERE `id` IN ('.$ids.');';
+        $sql = 'SELECT * FROM `'.self::USER.'` WHERE `id` IN ('.$ids.');';
         $db->prepare($sql);
         $db->execute();
         $result = $db->getall();
@@ -162,7 +164,7 @@ class Data
     private static function updatePrize($ids, $prize, $number, $type)
     {
         $db = new MySQL(self::DB);
-        $sql = 'UPDATE `h3c_meet_prize` SET `prize_name` = "'.$prize.'", `get_time` = "'.date('Y-m-d H:i:s').'" WHERE `whichPlate` = "'.$type.'" AND  `uid` IN ('.$ids.');';
+        $sql = 'UPDATE `'.self::PRIZE.'` SET `prize_name` = "'.$prize.'", `get_time` = "'.date('Y-m-d H:i:s').'" WHERE `whichPlate` = "'.$type.'" AND  `uid` IN ('.$ids.');';
         $db->prepare($sql);
         $db->execute();
         $result = $db->getrowcount();
@@ -173,7 +175,7 @@ class Data
     public static function updatePrizeTime($id)
     {
         $db = new MySQL(self::DB);
-        $sql = 'UPDATE `h3c_meet_prize` SET `accept_time` = "'.date('Y-m-d H:i:s').'" WHERE `id` = "'.$id.'"';
+        $sql = 'UPDATE `'.self::PRIZE.'` SET `accept_time` = "'.date('Y-m-d H:i:s').'" WHERE `id` = "'.$id.'"';
         $db->prepare($sql);
         $db->execute();
         $result = $db->getrowcount();
@@ -184,7 +186,7 @@ class Data
     private static function updatePlace($type, $name)
     {
         $db = new MySQL(self::DB);
-        $sql = 'UPDATE `h3c_meet_room` SET `'.$name.'` = 1 WHERE `type` = "'.$type.'";';
+        $sql = 'UPDATE `'.self::ROOM.'` SET `'.$name.'` = 1 WHERE `type` = "'.$type.'";';
         $db->prepare($sql);
         $db->execute();
         $result = $db->getrowcount();

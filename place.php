@@ -17,8 +17,10 @@ if($action == 1 && !empty($type)) {
 }
 if($action == 4 && !empty($type)) {
     $place = Data::clearPrize($type);
-    if(!empty($place)) {
+    if($place > 0) {
         exit(json_encode(['code' => 200, 'msg' => '清除测试数据成功！', 'data' => $place], JSON_UNESCAPED_UNICODE));
+    }elseif($place == 0) {
+        exit(json_encode(['code' => 200, 'msg' => '无测试数据！', 'data' => $place], JSON_UNESCAPED_UNICODE));
     }
 }
 if($action == 2) {
