@@ -24,97 +24,28 @@ if(empty($place)) {
     <title>2017新华三合作伙伴颁奖晚宴</title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/lucky.css" rel="stylesheet" type="text/css" />
-    <style>
-        body{
-            background: transparent;
-        }
-        .prize-btn{
-            background-image: url(assets/images/lucky/btn.png);
-            background-position: top;
-            text-decoration: none;
-            background-size: cover;
-            width: 100%;
-            height: 70px;
-            font-size: 35px;
-            color: #000;
-            line-height: 66px;
-            text-align: center;
-        }
-        .animate {
-            height: 180px;
-            overflow: hidden;
-        }
-        .animate li{
-            font-size: 24px;
-        }
-
-        #start {
-            background-image: url(assets/images/dinner/start.png);
-            background-size: cover;
-            height: 70px;
-            margin-top: -2%;
-            margin-bottom: 3%;
-            font-size: 0;
-            width: 180px;
-        }
-        #start.active{
-            background-image: url(assets/images/dinner/stop.png);
-            background-size: cover;
-            height: 70px;
-            margin-top: -2%;
-            margin-bottom: 3%;
-            font-size: 0;
-            width: 180px;
-        }
-        .dinner-list-two .user-info{
-            background-size: 180px;
-        }
-        .dinner-list-two .user-info img{
-            width: 156px;
-            height: 156px;
-            margin-top: 13px;
-        }
-        .dinner-list-two .user-info p.text-center{
-            font-size: 40px;
-            padding-top: 10px;
-        }
-        .lucky-body-two .row{
-            height: 253px;
-            overflow: hidden;
-        }
-        .lucky-body-two ul.list{
-            overflow: hidden;
-            top: -15px;
-            padding: 0;
-            color: #fff;
-            position: relative;
-        }
-        .lucky-body-two ul.list li{
-            height: 253px;
-            padding:0;
-            text-align: center;
-            font-size: 14px;
-            font-weight: bold;
-            list-style: none;
-        }
-    </style>
 </head>
 <body>
 <div class="fen-bg-phone text-center">
-    <img src="assets/images/dinner/pure.jpg" style="position: fixed; width: 100%; top: 0; left: 0; height: 100%; z-index: -999;">
-    <img id="bg" src="assets/images/dinner/yi.jpg" style="width: 100%;top: 15%; position: fixed; z-index: -99; left: 0;">
-    <div class="step-one" style="display: block; margin-top: 25%;">
-        <div class="lucky-body" style="width: 80%;">
+    <img src="assets/images/lucky/background/pure.jpg" style="position: fixed; width: 100%; left: 0; height: 100%; z-index: -999;">
+    <img id="bg" src="assets/images/lucky/background/dinner-bg.png" style="width: 66%;margin-top: 5%; position: relative; z-index: -99">
+    <div class="row" style="margin-top: -58%">
+        <div class="col-md-12 text-center">
+            <img class="lucky-logo" style="margin-top: 7%;" src="assets/images/lucky/title/<?php echo $type; ?>.png" alt="">
+        </div>
+    </div>
+    <div class="step-one" style="display: block; padding-top: 6%;">
+        <div class="lucky-body">
             <div class="row">
                 <div class="col-md-2" style="padding-top: 4%;">
                     <?php if($place['prize_three_status'] == 0) {?>
-                        <a href="javascript:;" class="pull-left prize-btn">三等奖</a>
+                        <a href="javascript:;" class="pull-left btn-prize active">三等奖</a>
                     <?php }elseif($place['prize_two_status'] == 0) {?>
-                        <a href="javascript:;" class="pull-left prize-btn">二等奖</a>
+                        <a href="javascript:;" class="pull-left btn-prize active">二等奖</a>
                     <?php }elseif($place['prize_one_status'] == 0) {?>
-                        <a href="javascript:;" class="pull-left prize-btn">一等奖</a>
+                        <a href="javascript:;" class="pull-left btn-prize active">一等奖</a>
                     <?php }else {?>
-                        <a href="javascript:;" class="pull-left prize-btn">三等奖</a>
+                        <a href="javascript:;" class="pull-left btn-prize disabled">三等奖</a>
                     <?php }?>
                 </div>
                 <div class="col-md-2 animate"><ul></ul></div>
@@ -145,51 +76,28 @@ if(empty($place)) {
                 <?php } ?>
                 <a href="javascript:;" class="btn text-center" id="start">开始抽奖</a>
             </div>
-
-            <img src="assets/images/dinner/copy.png" style="margin: 1% auto;">
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="prize-info" style="padding: 0;padding-top: 15px; margin: 0 auto; text-align: center">
+                    <?php if($place['prize_three_status'] == 0 ) {?>
+                    <img src="assets/images/lucky/san-dinner-chou.png" alt=""></p>
+                <?php }elseif($place['prize_two_status'] == 0 ){ ?>
+                    <img src="assets/images/lucky/er-dinner-chou.png" alt=""></p>
+                <?php }elseif($place['prize_one_status'] == 0){ ?>
+                    <img src="assets/images/lucky/yi-dinner-chou.png" alt=""></p>
+                <?php }else{ ?>
+                    <img src="assets/images/lucky/san-dinner-chou.png" alt=""></p>
+                <?php } ?>
+            </div>
         </div>
 
     </div>
     <div class="step-two" style="display: none;">
-        <div class="lucky-body-two" style="width:100%; margin: 26% auto 1% auto;">
+        <div class="lucky-body-two" style="width: 53%">
             <div class="row">
-                <ul class="list" style="padding: 0">
-                    <li>
-                        <div class="dinner-list-two">
-                            <div class="user-info">
-                                <img src="http://wx.qlogo.cn/mmopen/6t0VDe9bl5cayzHbwkOgHHs0sKH36uXrCbl02DN9bwibN7xAUYUgWyReY4h2bkxBd8c7SxxD6IicdmiaicaaJn80dg/0">
-                                <p class="text-center">186****5555</p>
-                            </div>
-                        </div>
-                        <div class="dinner-list-two">
-                            <div class="user-info">
-                                <img src="http://wx.qlogo.cn/mmopen/6t0VDe9bl5cayzHbwkOgHHs0sKH36uXrCbl02DN9bwibN7xAUYUgWyReY4h2bkxBd8c7SxxD6IicdmiaicaaJn80dg/0">
-                                <p class="text-center">186****5555</p>
-                            </div>
-                        </div>
-                        <div class="dinner-list-two">
-                            <div class="user-info">
-                                <img src="http://wx.qlogo.cn/mmopen/6t0VDe9bl5cayzHbwkOgHHs0sKH36uXrCbl02DN9bwibN7xAUYUgWyReY4h2bkxBd8c7SxxD6IicdmiaicaaJn80dg/0">
-                                <p class="text-center">186****5555</p>
-                            </div>
-                        </div>
-                        <div class="dinner-list-two">
-                            <div class="user-info">
-                                <img src="http://wx.qlogo.cn/mmopen/6t0VDe9bl5cayzHbwkOgHHs0sKH36uXrCbl02DN9bwibN7xAUYUgWyReY4h2bkxBd8c7SxxD6IicdmiaicaaJn80dg/0">
-                                <p class="text-center">186****5555</p>
-                            </div>
-                        </div>
-                        <div class="dinner-list-two">
-                            <div class="user-info">
-                                <img src="http://wx.qlogo.cn/mmopen/6t0VDe9bl5cayzHbwkOgHHs0sKH36uXrCbl02DN9bwibN7xAUYUgWyReY4h2bkxBd8c7SxxD6IicdmiaicaaJn80dg/0">
-                                <p class="text-center">186****5555</p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <div class="list" style="margin-top: -4%"></div>
             </div>
-
-            <img src="assets/images/dinner/copy2.png" style="margin: 8% auto 0 auto;">
         </div>
     </div>
 </div>
@@ -226,19 +134,11 @@ if(empty($place)) {
         }
         animate.each(function () {
             $(this).myScroll({
-                speed:10, //数值越大，速度越慢
+                speed:100, //数值越大，速度越慢
                 rowHeight:34, //li的高度
                 margin:1
             });
         });
-        function scrollPrize() {
-            $('.lucky-body-two .row').myScroll({
-                speed:20, //数值越大，速度越慢
-                rowHeight:253, //li的高度
-                margin:1
-            });
-        }
-        scrollPrize()
         function GetRandomNum(Min, Max) {
             var Range = Max - Min;
             var Rand = Math.random();
@@ -274,22 +174,20 @@ if(empty($place)) {
                             $('.step-two').show();
                             var list = '';
                             if(prize_name.val() == 'prize_one_status') {
-                                $('#bg').attr('src', 'assets/images/dinner/yi.jpg');
-                                list += '<li>';
+                                $('#bg').attr('src', 'assets/images/lucky/background/yi-dinner.png');
                                 $.each(data.data, function (i, val) {
                                     var str = val.dinnerphone;
-                                    list += '<div class="dinner-list-two">';
+                                    list += '<div class="dinner-list-one">';
                                     list += '    <div class="user-info">';
                                     list += '       <img src="'+val.headimgurl+'">';
                                     list += '       <p class="text-center">' + str.substr(0,3)+"****"+str.substr(7) + '</p>';
                                     list += '    </div>';
                                     list += '</div>';
                                 });
-                                list += '</li>';
-                                $('.list').append(list);
+                                list += '<p style="padding-top: 40%; color: yellow"><img src="assets/images/lucky/yi-prize-dinner.png" alt=""></p>';
                             }else if(prize_name.val() == 'prize_two_status') {
-                                $('#bg').attr('src', 'assets/images/dinner/er.jpg');
-                                list += '<li>';
+                                $('#bg').attr('src', 'assets/images/lucky/background/er-dinner.png');
+                                $('.lucky-body-two').css('margin', '9% auto 1% auto');
                                 $.each(data.data, function (i, val) {
                                     var str = val.dinnerphone;
                                     list += '<div class="dinner-list-two">';
@@ -299,25 +197,22 @@ if(empty($place)) {
                                     list += '    </div>';
                                     list += '</div>';
                                 });
-                                list += '</li>';
-                                $('.list').append(list);
-                                scrollPrize();
+                                list += '<p style="padding-top: 40%; color: yellow"><img src="assets/images/lucky/er-prize-dinner.png" alt=""></p>';
                             }else if(prize_name.val() == 'prize_three_status') {
-                                $('#bg').attr('src', 'assets/images/dinner/san.jpg');
-                                list += '<li>';
+                                $('#bg').attr('src', 'assets/images/lucky/background/san-dinner.png');
+                                $('.lucky-body-two').css('width', '50%');
                                 $.each(data.data, function (i, val) {
                                     var str = val.dinnerphone;
-                                    list += '<div class="dinner-list-two">';
+                                    list += '<div class="dinner-list">';
                                     list += '    <div class="user-info">';
                                     list += '       <img src="'+val.headimgurl+'">';
-                                    list += '       <p class="text-center">' + str.substr(0,3)+"****"+str.substr(7) + '</p>';
+                                    list += '       <p class="pull-right text-left">' + str.substr(0,3)+"****"+str.substr(7) + '&nbsp;&nbsp;&nbsp;&nbsp;</p>';
                                     list += '    </div>';
                                     list += '</div>';
                                 });
-                                list += '</li>';
-                                $('.list').append(list);
-                                scrollPrize();
+                                list += '<p style="padding-top: 45%; color: yellow"><img src="assets/images/lucky/san-prize-dinner.png" alt=""></p>';
                             }
+                            $('.list').append(list);
                         }else{
                             $('.overlay img').attr('src', 'assets/images/lucky/not-enough.png');
                             $('.overlay').css('height', document.body.scrollHeight).show();
