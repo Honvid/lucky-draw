@@ -102,7 +102,7 @@ if(empty($place)) {
 <body>
 <div class="fen-bg-phone text-center">
     <img src="assets/images/dinner/pure.jpg" style="position: fixed; width: 100%; top: 0; left: 0; height: 100%; z-index: -999;">
-    <img id="bg" src="assets/images/dinner/yi.jpg" style="width: 100%;top: 15%; position: fixed; z-index: -99; left: 0;">
+    <img id="bg" src="assets/images/dinner/chou-bg.jpg" style="width: 100%;top: 15%; position: fixed; z-index: -99; left: 0;">
     <div class="step-one" style="display: block; margin-top: 25%;">
         <div class="lucky-body" style="width: 80%;">
             <div class="row">
@@ -153,42 +153,8 @@ if(empty($place)) {
     <div class="step-two" style="display: none;">
         <div class="lucky-body-two" style="width:100%; margin: 26% auto 1% auto;">
             <div class="row">
-                <ul class="list" style="padding: 0">
-                    <li>
-                        <div class="dinner-list-two">
-                            <div class="user-info">
-                                <img src="http://wx.qlogo.cn/mmopen/6t0VDe9bl5cayzHbwkOgHHs0sKH36uXrCbl02DN9bwibN7xAUYUgWyReY4h2bkxBd8c7SxxD6IicdmiaicaaJn80dg/0">
-                                <p class="text-center">186****5555</p>
-                            </div>
-                        </div>
-                        <div class="dinner-list-two">
-                            <div class="user-info">
-                                <img src="http://wx.qlogo.cn/mmopen/6t0VDe9bl5cayzHbwkOgHHs0sKH36uXrCbl02DN9bwibN7xAUYUgWyReY4h2bkxBd8c7SxxD6IicdmiaicaaJn80dg/0">
-                                <p class="text-center">186****5555</p>
-                            </div>
-                        </div>
-                        <div class="dinner-list-two">
-                            <div class="user-info">
-                                <img src="http://wx.qlogo.cn/mmopen/6t0VDe9bl5cayzHbwkOgHHs0sKH36uXrCbl02DN9bwibN7xAUYUgWyReY4h2bkxBd8c7SxxD6IicdmiaicaaJn80dg/0">
-                                <p class="text-center">186****5555</p>
-                            </div>
-                        </div>
-                        <div class="dinner-list-two">
-                            <div class="user-info">
-                                <img src="http://wx.qlogo.cn/mmopen/6t0VDe9bl5cayzHbwkOgHHs0sKH36uXrCbl02DN9bwibN7xAUYUgWyReY4h2bkxBd8c7SxxD6IicdmiaicaaJn80dg/0">
-                                <p class="text-center">186****5555</p>
-                            </div>
-                        </div>
-                        <div class="dinner-list-two">
-                            <div class="user-info">
-                                <img src="http://wx.qlogo.cn/mmopen/6t0VDe9bl5cayzHbwkOgHHs0sKH36uXrCbl02DN9bwibN7xAUYUgWyReY4h2bkxBd8c7SxxD6IicdmiaicaaJn80dg/0">
-                                <p class="text-center">186****5555</p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="list" style="padding: 0"></ul>
             </div>
-
             <img src="assets/images/dinner/copy2.png" style="margin: 8% auto 0 auto;">
         </div>
     </div>
