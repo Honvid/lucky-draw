@@ -256,8 +256,11 @@ if(empty($place)) {
                                 $('.list').append(list);
                             }else if(prize_name.val() == 'prize_two_status') {
                                 $('#bg').attr('src', 'assets/images/dinner/er.jpg');
-                                list += '<li>';
+
                                 $.each(data.data, function (i, val) {
+                                    if(i % 5 == 0) {
+                                        list += '<li>';
+                                    }
                                     var str = val.dinnerphone;
                                     list += '<div class="dinner-list-two">';
                                     list += '    <div class="user-info">';
@@ -265,23 +268,30 @@ if(empty($place)) {
                                     list += '       <p class="text-center">' + str.substr(0,3)+"****"+str.substr(7) + '</p>';
                                     list += '    </div>';
                                     list += '</div>';
+                                    if(i % 5 == 4) {
+                                        list += '</li>';
+                                    }
                                 });
-                                list += '</li>';
                                 $('.list').append(list);
                                 scrollPrize();
                             }else if(prize_name.val() == 'prize_three_status') {
                                 $('#bg').attr('src', 'assets/images/dinner/san.jpg');
-                                list += '<li>';
+
                                 $.each(data.data, function (i, val) {
+                                    if(i % 5 == 0) {
+                                        list += '<li>';
+                                    }
                                     var str = val.dinnerphone;
                                     list += '<div class="dinner-list-two">';
                                     list += '    <div class="user-info">';
-                                    list += '       <img src="'+val.headimgurl+'">';
-                                    list += '       <p class="text-center">' + str.substr(0,3)+"****"+str.substr(7) + '</p>';
+                                    list += '       <img src="' + val.headimgurl + '">';
+                                    list += '       <p class="text-center">' + str.substr(0, 3) + "****" + str.substr(7) + '</p>';
                                     list += '    </div>';
                                     list += '</div>';
+                                    if(i % 5 == 4) {
+                                        list += '</li>';
+                                    }
                                 });
-                                list += '</li>';
                                 $('.list').append(list);
                                 scrollPrize();
                             }
