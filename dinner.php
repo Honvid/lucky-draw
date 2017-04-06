@@ -202,10 +202,12 @@ if(empty($place)) {
         height: 100%;
         background: rgba(0,0,0,0.8);
         width: 100%;
+        z-index: 99;
     }
     .overlay img{
         margin-top: 20%;
         width: 30%;
+        z-index: 999;
     }
 </style>
 <div class="overlay">
@@ -238,7 +240,6 @@ if(empty($place)) {
                 margin:1
             });
         }
-        scrollPrize()
         function GetRandomNum(Min, Max) {
             var Range = Max - Min;
             var Rand = Math.random();
@@ -335,6 +336,9 @@ if(empty($place)) {
             window.location.href = '/lucky.php?type='+ "<?php echo $type; ?>";
         });
         $('.overlay').on('click', function () {
+            window.location.reload();
+        });
+        $('.overlay img').on('click', function () {
             window.location.reload();
         });
     });

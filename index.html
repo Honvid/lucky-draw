@@ -40,10 +40,12 @@
             height: 100%;
             background: rgba(0,0,0,0.8);
             width: 100%;
+            z-index: 99;
         }
         .overlay img{
             margin-top: 60%;
             width: 250px;
+            z-index: 999;
         }
     </style>
 </head>
@@ -95,6 +97,10 @@
         })
     });
     $('.overlay').on('click', function () {
+        window.location.reload();
+    });
+
+    $('.overlay img').on('click', function () {
         window.location.reload();
     });
     function getUrlParam(name) {
