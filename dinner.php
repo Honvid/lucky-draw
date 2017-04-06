@@ -84,7 +84,7 @@ if(empty($place)) {
         }
         .lucky-body-two ul.list{
             overflow: hidden;
-            top: -15px;
+            /*top: -15px;*/
             padding: 0;
             color: #fff;
             position: relative;
