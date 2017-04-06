@@ -33,7 +33,7 @@
                                             <td><?php echo $key+1; ?></td>
                                             <td>
                                                 <p><?php echo $value['name']; ?></p>
-                                                <p><a href="http://active.com/lucky.php?type=<?php echo $value['type']; ?>" target="_blank">抽奖链接</a></p>
+                                                <p><a href="http://lucky.honvid.com/lucky.php?type=<?php echo $value['type']; ?>" target="_blank">抽奖链接</a></p>
                                             </td>
                                             <td><p><?php echo $value['type']; ?></p></td>
                                             <td style="">
