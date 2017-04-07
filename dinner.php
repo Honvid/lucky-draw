@@ -27,6 +27,7 @@ if(empty($place)) {
     <style>
         body{
             background: transparent;
+            overflow: hidden;
         }
         .prize-btn{
             background-image: url(assets/images/lucky/btn.png);
@@ -201,7 +202,7 @@ if(empty($place)) {
         });
         function scrollPrize() {
             $('.lucky-body-two .row').myScroll({
-                speed:20, //数值越大，速度越慢
+                speed:100, //数值越大，速度越慢
                 rowHeight:253, //li的高度
                 margin:1
             });

@@ -44,7 +44,7 @@
         <!-- LOGO -->
         <div class="topbar-left">
             <div class="text-center">
-                <a href="index.html" class="logo">活动</a>
+                <a href="／" class="logo">活动</a>
             </div>
         </div>
 
