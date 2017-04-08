@@ -7,9 +7,9 @@
 class Data
 {
     const DB = 'h3c';
-    const ROOM = 'h3c_meet_room_test';
-    const USER = 'h3c_meet_user_test';
-    const PRIZE = 'h3c_meet_prize_test';
+    const ROOM = 'h3c_meet_room';
+    const USER = 'h3c_meet_user';
+    const PRIZE = 'h3c_meet_prize';
     public static function getUserCountByType($type)
     {
         $db = new MySQL(self::DB);
