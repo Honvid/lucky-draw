@@ -8,8 +8,8 @@ class Data
 {
     const DB = 'h3c';
     const ROOM = 'h3c_meet_room';
-    const USER = 'h3c_meet_user';
-    const PRIZE = 'h3c_meet_prize';
+    const USER = 'h3c_meet_user_test';
+    const PRIZE = 'h3c_meet_prize_test';
     public static function getUserCountByType($type)
     {
         $db = new MySQL(self::DB);
@@ -65,6 +65,26 @@ class Data
         $result = $db->getrowcount();
         $db->close();
         return $result > 0;
+    }
+
+    public static function getPrizePersonAll($type = '')
+    {
+        $db = new MySQL(self::DB);
+        if(empty($type)) {
+            $sql = 'SELECT p.*, r.name, u.* FROM `' . self::PRIZE . '` as p 
+          LEFT JOIN `' . self::ROOM . '` as r ON r.`type` = p.`whichPlate` 
+          LEFT JOIN `' . self::USER . '` as u ON u.`id` = p.`uid`';
+        }else{
+            $sql = 'SELECT p.*, r.name, u.* FROM `'.self::PRIZE.'` as p 
+              LEFT JOIN `'.self::ROOM.'` as r ON r.`type` = p.`whichPlate` 
+              LEFT JOIN `'.self::USER.'` as u ON u.`id` = p.`uid`
+              WHERE p.`whichPlate` = "'.$type.'";';
+        }
+        $db->prepare($sql);
+        $db->execute();
+        $result = $db->getall();
+        $db->close();
+        return $result;
     }
 
     public static function getPrizePerson($type)
@@ -200,6 +220,6 @@ class Data
         $db->execute();
         $result = $db->getrowcount();
         $db->close();
-        return $result > 0;
+        return $result >= 0;
     }
 }
