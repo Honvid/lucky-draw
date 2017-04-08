@@ -119,6 +119,18 @@ class Data
         return $result;
     }
 
+
+    public static function getPlaceListNew()
+    {
+        $db = new MySQL(self::DB);
+        $sql = 'SELECT * FROM `'.self::ROOM.'` WHERE `id` > 12';
+        $db->prepare($sql);
+        $db->execute();
+        $result = $db->getall();
+        $db->close();
+        return $result;
+    }
+
     public static function countPerson()
     {
         $db = new MySQL(self::DB);
