@@ -7,7 +7,7 @@
 class Data
 {
     const DB = 'h3c';
-    const ROOM = 'h3c_meet_room';
+    const ROOM = 'h3c_meet_room_test';
     const USER = 'h3c_meet_user_test';
     const PRIZE = 'h3c_meet_prize_test';
     public static function getUserCountByType($type)
