@@ -2,7 +2,7 @@
     require 'require.php';
     require 'partial/header.php';
     $count = Data::countPerson();
-    $data = Data::getPlaceList();
+    $data = Data::getPlaceListNew();
 ?>
                 <div class="row">
                     <div class="col-sm-12">
