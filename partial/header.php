@@ -75,7 +75,7 @@
                 <ul>
                     <li class="text-muted menu-title">控制台</li>
                     <li>
-                        <a href="/index.php" class="waves-effect"><span> 会场信息 </span></a>
+                        <a href="/new.php" class="waves-effect"><span> 会场信息 </span></a>
                     </li>
                     <li>
                         <a href="/prize.php" class="waves-effect"><span> 获奖信息 </span></a>
