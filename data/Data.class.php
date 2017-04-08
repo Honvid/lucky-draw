@@ -8,8 +8,8 @@ class Data
 {
     const DB = 'h3c';
     const ROOM = 'h3c_meet_room';
-    const USER = 'h3c_meet_user_test';
-    const PRIZE = 'h3c_meet_prize_test';
+    const USER = 'h3c_meet_user';
+    const PRIZE = 'h3c_meet_prize';
     public static function getUserCountByType($type)
     {
         $db = new MySQL(self::DB);
@@ -155,16 +155,25 @@ class Data
         $db->execute();
         $result = $db->getall();
         $db->close();
-        if(!empty($result) && self::updatePlace($type, $name) && self::updatePrize($ids, $prize, $number,$type)) {
+        if(!empty($result) && self::updatePlace($type, $name) && self::updatePrize($ids, $prize, $number,$type, $name)) {
             return $result;
         }
         return [];
     }
 
-    private static function updatePrize($ids, $prize, $number, $type)
+    private static function updatePrize($ids, $prize, $number, $type, $name)
     {
+        if($name == 'prize_one_status') {
+            $title = '一等奖：'.$prize;
+        }elseif($name == "prize_two_status"){
+            $title = '二等奖：'.$prize;
+        }else if ($name == 'prize_three_status'){
+            $title = '三等奖：'.$prize;
+        }else{
+            $title = '未知';
+        }
         $db = new MySQL(self::DB);
-        $sql = 'UPDATE `'.self::PRIZE.'` SET `prize_name` = "'.$prize.'", `get_time` = "'.date('Y-m-d H:i:s').'" WHERE `whichPlate` = "'.$type.'" AND  `uid` IN ('.$ids.');';
+        $sql = 'UPDATE `'.self::PRIZE.'` SET `prize_name` = "'.$title.'", `get_time` = "'.date('Y-m-d H:i:s').'" WHERE `whichPlate` = "'.$type.'" AND  `uid` IN ('.$ids.');';
         $db->prepare($sql);
         $db->execute();
         $result = $db->getrowcount();
